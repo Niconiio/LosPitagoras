@@ -1,0 +1,1 @@
+void ejemplo(int a);
