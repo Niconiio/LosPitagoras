@@ -1,4 +1,4 @@
-#Trigonometry Viewer
+**Trigonometry Viewer**
 
 
 - Problemática a solucionar 
