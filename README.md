@@ -1,11 +1,11 @@
 **Trigonometry Viewer**
 
 
-- Problemática a solucionar 
+- Problemática a solucionar
 
 - Objetivo(s) general(es) del proyecto.
 
-- Objetivo(s) especíco(s) del proyecto.
+- Objetivo(s) específico(s) del proyecto.
 
 - Roles de cada integrante.
 
