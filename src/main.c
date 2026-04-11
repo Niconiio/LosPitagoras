@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include "encabezado.h"
+#include <math.h>
 
 int main(){
-  
+//Grafica el seno, el coseno, y el circulo unitario.
 
-for (int i = 0; i < 10; i++){
-printf("%d\n", i);}
   return 0;
 }
