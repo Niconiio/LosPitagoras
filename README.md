@@ -7,7 +7,7 @@
 
 - Objetivo(s) específico(s) del proyecto.
 
-- Roles de cada integrante.
+- Roles de cada integrante (específicos)
 
 - Funcionalidades implementadas y las pruebas realizadas (actividades y tareas).
 
