@@ -1,11 +1,20 @@
-## **Trigonometry Viewer**
-### Problemática a solucionar
+## **Trigonometry Viewer Hito 1**
+### Problemática a solucionar:
+
 
 ### Objetivo(s) general(es) del proyecto.
 
 ### Objetivo(s) específico(s) del proyecto.
 
-### Roles de cada integrante (específicos)
+### Roles de cada integrante
+| Integrante | Rol Scrum | Responsabilidades Principales |
+| :--- | :--- | :--- |
+| **Yeremi Rodríguez** | **Product Owner** | Clarifica objetivos y resuelve dudas al equipo y realiza consultas al profesor. |
+| **Vicente Arellano** | **Scrum Master** | Facilita la organización y planifica las reuniones. |
+| **Yeremi Rodríguez** | **Equipo** | Escritura de código. |
+| **Nicole Zuñiga** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
+| **Daniel Vera** | **Equipo** | Escritura de código, ejecución de pruebas. |
+| **Vicente Arellano** | **Equipo** | Documentación técnica, mantenimiento del repositorio en GitHub y planificación del video. |
 
 ### Funcionalidades implementadas y las pruebas realizadas (actividades y tareas).
 
