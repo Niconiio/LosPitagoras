@@ -1,7 +1,5 @@
-**Trigonometry Viewer**
-
-
-- Problemática a solucionar
+## **Trigonometry Viewer**
+### Problemática a solucionar
 
 - Objetivo(s) general(es) del proyecto.
 
