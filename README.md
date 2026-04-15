@@ -1,10 +1,14 @@
 ## **Trigonometry Viewer Hito 1**
-### Problemática a solucionar:
+### Problemática a solucionar: 
+El no entendimiento de la función seno y coseno por estudiantes de educación media
 
 
-### Objetivo(s) general(es) del proyecto.
+### Objetivo general del proyecto:
+Ayudar a entender la función seno y coseno a estudiantes de educación media
 
-### Objetivo(s) específico(s) del proyecto.
+### Objetivos específicos del proyecto en el hito 1:
+Crear primera versión funcional del proyecto en lenguaje C
+
 
 ### Roles de cada integrante
 | Integrante | Rol Scrum | Responsabilidades Principales |
