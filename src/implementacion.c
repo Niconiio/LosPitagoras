@@ -1,110 +1,84 @@
 #include <stdio.h>
 #include "encabezado.h"
-
+//Regla de oro nunca agregar cosas, sin terminar otras, acomplejizan el programa y dificultan la busqueda de errores
+//Segmentar el codigo en partes manejables
 
 //Yeremi Rodríguez
 
-/*
-Ejemplo de uso:
 
-GRAFICA LA FUNCIÓN x = y
---------------------------------------------------------------------------------
-#include <stdio.h>
-#include "encabezado.h"
-#include <math.h>
-
-int main(){
-//Grafica el seno, el coseno, y el circulo unitario.
-
-int n = 11;
-char re = '-';
-int y_ma = 10;
-int y_mi = -10;
-int x_mi = 0;
-int x_ma = 10;
-struct point prueba[n];
-
-for (int i = 0; i < n; i++){
-  //función x = y
-  prueba[i].x = i;
-  prueba[i].y = i;
-  prueba[i].letra = '@';
-}
-
-graf_xy(prueba, n, y_ma, y_mi,  x_ma,  x_mi, re);
-
-  return 0;
-}
-
-
-
-
-
--  -  -  -  -  -  -  -  -  -  @  
--  -  -  -  -  -  -  -  -  @  -
--  -  -  -  -  -  -  -  @  -  -
--  -  -  -  -  -  -  @  -  -  -
--  -  -  -  -  -  @  -  -  -  -
--  -  -  -  -  @  -  -  -  -  -
--  -  -  -  @  -  -  -  -  -  -
--  -  -  @  -  -  -  -  -  -  -
--  -  @  -  -  -  -  -  -  -  -
--  @  -  -  -  -  -  -  -  -  -
-@  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
--  -  -  -  -  -  -  -  -  -  -
-----------------------------------------------------------------------------------
-*/
-
-
-
-
-
-//para una cantidad de puntos muy pequeños
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
-//Utiliza indices similareas a los de un matriz, pero las filas se cuentan desde mayor a menor
-    int i = y_max; //Filas, eje y
-    int j = x_min; //Columnas eje x
     int fill;
+    char signo;
+    int a;
+    //Soluciona errores de input del usuario.
+    if (y_min > y_max){
+        a = y_min;
+        y_min = y_max;
+        y_max = a;
+    }
+    if (x_min > x_max){
+        a = x_min;
+        x_min = x_max;
+        x_max = a;
+    }
 
-    char re = '-';
-//y
+
     for (int i = y_max; i >= y_min; i--){
-        //x
+        if (i < 0)
+            signo = '-';
+        else
+            signo = '+';
+        
+        //Muestra el Eje de las ordenadas (Y) con los números, determina el espaciado entre los numeros y el eje.
+        //Se requiere generalizar para todo orden de magnitud, hasta ahora, el eje Y no distorcionará el grafico, siempre y cuando |y_max| < 1000
+        if (abs(y_max) >= 100){
+            if (abs(i) >= 100)
+                printf("%c%d||  ", signo, abs(i));
+            else if (abs(i) >= 10)
+                printf("%c%d ||  ", signo, abs(i));
+            else 
+                printf("%c%d  ||  ", signo, abs(i));
+        } else if (abs(y_max) >= 10){
+            if (abs(i) >= 10)
+                printf("%c%d||  ",signo, abs(i));
+            else 
+                printf("%c%d ||  ",signo, abs(i));
+        } else {                
+            if (abs(i) >= 100)
+                printf("%c%d||  ", signo, abs(i));
+            else if (abs(i) >= 10)
+                printf("%c%d ||  ", signo, abs(i));
+            else 
+                printf("%c%d  ||  ", signo, abs(i));
+        }
+
+        //Ubica puntos en eje x, rellena el grafico y crea eje x
         for (int j = x_min; j <= x_max; j++){
-            fill = 1;
-            //Busqueda
-            for (int ind = 0; ind < tam; ind ++){
+            int fill = 1; //Flag de impresión
+            //Recorre el array, imprime el punto si coincide la posición, si esto pasa ademas fill = 0.
+            for (int ind = 0; ind < tam; ind++){
                 if (lista[ind].x == j && lista[ind].y == i){
                     printf("%c  ", lista[ind].letra);
                     fill = 0;}}
+            //Si no encontró ningun punto, imprime relleno o Eje x
             if (fill == 1)
-                if (j == 0)
-                    printf("%d ", i);
+                if (i!= 0)
+                    printf("%c  ",relleno);
+            //Si y= 0, imprime caracter de eje x
                 else
-                    printf("%c  ",re);
-    }  
-        printf("\n");
+                    printf("=  ");
+                    
+    /*
+            Idea descartada: No es posible mostrar numeros en el eje x sin deformar el grafico, se desea una solución alternativa.
+                if (i != 0)
+                    printf("%c  ",relleno);
+                else
+                    printf("%d  ", j);
+    */        
+        }
+    printf("\n");
     }
-
 }
-
-
-
-
-
-
-
-//Para una cantudad de puntos grandes, es posible recorrer de forma procedural
-
 
 
 
