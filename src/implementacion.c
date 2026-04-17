@@ -80,6 +80,17 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
     }
 }
 
+void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char @) {
+    *tam = 0;
+    for (int x = x_min; x <= x_max; x++) {
+        lista[*tam].x = x;
+        lista[*tam].y = (int)(sin(x * M_PI / 180.0) * escala_y);
+        lista[*tam].@ = @;
+        (*tam)++;
+    }
+} //liberar memoria en main
+
+
 
 
 
