@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include "encabezado.h"
-//Regla de oro nunca agregar cosas, sin terminar otras, acomplejizan el programa y dificultan la busqueda de errores
-//Segmentar el codigo en partes manejables
 
-//Yeremi Rodríguez
 
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
