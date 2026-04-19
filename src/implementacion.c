@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "encabezado.h"
+#define pi 3.14159
 
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
@@ -85,8 +86,8 @@ void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y,
     *tam = 0;
     for (int x = x_min; x <= x_max; x++) {
         lista[*tam].x = x;
-        lista[*tam].y = (int)(sin(x * M_PI / 180.0) * escala_y);
-        lista[*tam].@ = @;
+        lista[*tam].y = (int)(sin(x * pi / 180.0) * escala_y);
+        lista[*tam].letra = @;
         (*tam)++;
     }
 } //liberar memoria en main
