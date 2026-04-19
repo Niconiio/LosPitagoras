@@ -8,6 +8,7 @@ Ayudar a entender la función seno y coseno a estudiantes de educación media
 ### Hito 1:
 - Crear una primera versión funcional del proyecto en lenguaje C
 - Crear un Github con una clara organización y completo
+- Crear una presentación en video sobre el avance del proyecto  
 
 
 
