@@ -1,13 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "encabezado.h"
-//Regla de oro nunca agregar cosas, sin terminar otras, acomplejizan el programa y dificultan la busqueda de errores
-//Segmentar el codigo en partes manejables
-
-//Yeremi Rodríguez
 
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
-    int fill;
     char signo;
     int a;
     //Soluciona errores de input del usuario.
@@ -21,8 +17,6 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
         x_min = x_max;
         x_max = a;
     }
-
-
     for (int i = y_max; i >= y_min; i--){
         if (i < 0)
             signo = '-';
@@ -51,23 +45,30 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
             else 
                 printf("%c%d  ||  ", signo, abs(i));
         }
-
+        int j;
         //Ubica puntos en eje x, rellena el grafico y crea eje x
         for (int j = x_min; j <= x_max; j++){
+
+            
             int fill = 1; //Flag de impresión
             //Recorre el array, imprime el punto si coincide la posición, si esto pasa ademas fill = 0.
             for (int ind = 0; ind < tam; ind++){
                 if (lista[ind].x == j && lista[ind].y == i){
                     printf("%c  ", lista[ind].letra);
-                    fill = 0;}}
+                    fill = 0;
+                    
+                }
+            }
             //Si no encontró ningun punto, imprime relleno o Eje x
             if (fill == 1)
                 if (i!= 0)
                     printf("%c  ",relleno);
             //Si y= 0, imprime caracter de eje x
                 else
-                    printf("=  ");
-                    
+                    if (i == 0 && j == 0)
+                        printf("0  ");
+                    else
+                        printf("=  ");
     /*
             Idea descartada: No es posible mostrar numeros en el eje x sin deformar el grafico, se desea una solución alternativa.
                 if (i != 0)
@@ -79,6 +80,7 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
     printf("\n");
     }
 }
+
 
 
 
