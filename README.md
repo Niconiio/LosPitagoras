@@ -1,8 +1,8 @@
 ## **Trigonometry Viewer**
 ### Problemática a solucionar: 
-El no entendimiento de la función seno y coseno por estudiantes de educación media
+Existen estudiantes de enseñanza media usan las funciones trigonométricas básicas sin siquiera entender qué significan, de dónde vienen y sus posibles aplicaciones
 ### Objetivo general del proyecto:
-Ayudar a entender la función seno y coseno a estudiantes de educación media
+Un programa que muestre gráficamente las funciones trigonométricas seno, relacionando conceptos de la materia de MAT070 (Introducción al cálculo) y que, por ejemplo. Comprender qué significan estas funciones significaría una ayuda en los primeros ramos de ingeniería.
 
 ### Objetivos específicos del proyecto:
 ### Hito 1:
@@ -22,10 +22,13 @@ Ayudar a entender la función seno y coseno a estudiantes de educación media
 | **Daniel Vera** | **Equipo** | Escritura de código, ejecución de pruebas. |
 | **Vicente Arellano** | **Equipo** | Documentación técnica, mantenimiento del repositorio en GitHub y planificación del video. |
 
-### Funcionalidades implementadas y las pruebas realizadas (actividades y tareas).
+### Funcionalidades implementadas:
+- Graficadora en el plano cartesiano
+- Grafica función seno y coseno 
 
 ### Avance logrado hasta ahora y próximos pasos hacia el Hito 2.
 
 ### Documentos adicionales y anexos
 
-### Referencias
+### Referencias:
+[Markdown](https://markdown.es/)
