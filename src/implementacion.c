@@ -96,6 +96,23 @@ void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y,
         lista[*tam].letra = c;
         (*tam)++;
     }
+void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
+
+    tam = 0;
+
+    for (int x = x_min; x <= x_max; x++) {
+
+        lista[tam].x = x;
+
+        lista[tam].y = (int)(round_(cos(x / (float)(escala_y)) escala_y));
+
+        lista[tam].letra = c;
+
+        (tam)++;
+
+    }
+
+}
 } //liberar memoria en main
 
 
