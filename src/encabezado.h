@@ -6,7 +6,7 @@ struct point
 };
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);
-
+float round_(float n);
 //float aprox_y(float y, float step);
 
 //float abs1(float n);
