@@ -1,8 +1,8 @@
 ## **Trigonometry Viewer**
 ### Problemática a solucionar: 
-Existen estudiantes de enseñanza media usan las funciones trigonométricas básicas sin siquiera entender qué significan, de dónde vienen y sus posibles aplicaciones
+Existen estudiantes de enseñanza media que usan las funciones trigonométricas básicas sin siquiera entender qué significan, de dónde vienen y sus posibles aplicaciones
 ### Objetivo general del proyecto:
-Un programa que muestre gráficamente las funciones trigonométricas seno, relacionando conceptos de la materia de MAT070 (Introducción al cálculo) y que, por ejemplo. Comprender qué significan estas funciones significaría una ayuda en los primeros ramos de ingeniería.
+Un programa que muestre gráficamente las funciones trigonométricas seno, coseno y tangente relacionando conceptos de la materia de MAT070 (Introducción al cálculo) y que, por ejemplo. Comprender qué significan estas funciones significaría una ayuda en los primeros ramos de ingeniería.
 
 ### Objetivos específicos del proyecto:
 ### Hito 1:
