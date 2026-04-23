@@ -3,6 +3,12 @@
 #include "encabezado.h"
 #define pi 3.14159
 
+float round_(float n){
+    if ((n-(int)(n))>= 0.5)
+        return (int)(n)+1.0;
+    else
+        return (float)((int)(n));
+}
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
     char signo;
