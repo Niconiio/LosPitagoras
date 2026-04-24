@@ -29,17 +29,19 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 
 - struct point
 
-struct point{
-int x;
-int y;
-char letra;
+```c
+struct point {
+    int x;
+    int y;
+    char letra;
 };
+```
 
 Descripción: Estructura de datos que representa un punto en el plano, con coordenadas enteras y un caracter que representa el punto en el gráfico.
 
 - Graficadora en el plano cartesiano (graf_xy):
 
-void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);
+```void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);```
 
 Descripción: Recibe una arreglo de datos de tipo struct point y lo grafica en consola.
 
@@ -60,7 +62,7 @@ las funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones
 
 - Círculo unitario (circle_u):
 
-void circle_u(float x, float y);
+```void circle_u(float x, float y);```
 
 Descripción: Reciben dos valores flotantes x e y, y ubica un punto en el circulo unitario.
 
