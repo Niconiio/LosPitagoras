@@ -38,3 +38,5 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 
 ### Referencias:
 [Markdown](https://markdown.es/)
+[Aprende GIT ahora! curso completo GRATIS desde cero](https://www.youtube.com/watch?v=VdGzPZ31ts8)
+[C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
