@@ -1,14 +1,78 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "encabezado.h"
+#include <math.h>
 #define pi 3.14159
+int escala_y= 8;
 
 float round_(float n){
-    if ((n-(int)(n))>= 0.5)
-        return (int)(n)+1.0;
+    if ((n -(int) n)>= 0.5)
+        return (int) n +1.0;
     else
-        return (float)((int)(n));
+        return (float)((int) n);
 }
+void anguloentrecatetos(float x, float y){
+    float angulohipad;
+    float angulohipop;
+    angulohipop=abs(atan(y));
+    angulohipad=((pi/2) - angulohipop);
+    printf("El angulo que se forma entre la hipotenusa y el cateto adyacente:%f rad, y el angulo que se forma entre la hipotenusa y el cateto opuesto:%f rad", angulohipad,angulohipop);
+}
+void circle_u(float x, float y){
+
+    /*Gracias a su simplicidad, el código de grax_xy permite graficar conjuntos cambiando las condicionales,
+     *    basandose en eso, modificando algunas condicionales y reutilizando parte del código,
+     *    es posible dibujar formas en el plano sin tanto esfuerzo y con un poco de creatividad.
+     *    Esta es una modificación de graf_xy hecha exclusivamente para representar un punto en el circulo unitario.
+     *
+     */
+
+    //Utilizamos la función round_ y casting, para redondear al entero mas cercano.
+    int x_ =(int)(round_(x*12));
+    int y_ = (int)(round_(y*12));
+
+    //Ambos ciclos for recorren las coordenadas tales filas de una matriz, pero j va de mayor a menor
+    for (int j = 20; j >= -20;j--){
+        for (int i = -20; i <= 20;i++){
+            //El punto tiene prioridad sobre cualquier elemento del grafico, por eso se imprime primero
+            if(x_ == i && y_ == j)
+                printf("O ");
+            else{
+                //Si no es el punto, entonces grafica el resto.
+
+                //Las condicionales, son conjuntos en R^2, hechos con fines esteticos para mostrar el seno y el coseno como componentes del punto
+                //Recta coseno al punto desde el origen
+                if (x_ < 0 && j == 0 && i >= x_ && i<=0)
+                    printf("c ");
+                else if (x_ > 0 && j == 0 && i <= x_ && i>=0)
+                    printf("c ");
+
+                //Recta seno al punto desde el origen
+                else if (y_ > 0 && i == x_ && j <= y_ && j>0)
+                    printf("s ");
+                else if (y_ < 0 && i == x_ && j >= y_ && j<0)
+                    printf("s ");
+
+                else{
+
+                    //Conjunto en R^2 que representa de un circunferencia rellena de radio 12 centrada en el origen del plano
+                    if((i*i + j*j)<= 144){
+                        printf(". ");
+                        //Complemento de este conjunto
+                    }else
+                        printf("  ");
+                }
+
+
+            }
+            //Espacios entre filas
+
+        }
+        printf("\n");
+
+    }
+}
+
 
 void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
     char signo;
@@ -88,23 +152,24 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
     }
 }
 
-void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
-    *tam = 0;
+void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
+    tam = 0; //tamaño de la lista e indice para el for
     for (int x = x_min; x <= x_max; x++) {
-        lista[*tam].x = x;
-        lista[*tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
-        lista[*tam].letra = c;
-        (*tam)++;
+        lista[tam].x = x;
+        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
+        lista[tam].letra = c;
+        (tam)++;
     }
-void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
 
-    tam = 0;
+}
+void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
+
+    tam = 0; //tamaño de la lista e indice para el for
 
     for (int x = x_min; x <= x_max; x++) {
-
         lista[tam].x = x;
 
-        lista[tam].y = (int)(round_(cos(x / (float)(escala_y)) escala_y));
+        lista[tam].y = (int)(round_(cos(x / (float)(escala_y)) * escala_y));
 
         lista[tam].letra = c;
 
@@ -113,7 +178,7 @@ void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_
     }
 
 }
-} //liberar memoria en main
+
 
 
 
