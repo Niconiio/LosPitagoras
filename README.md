@@ -5,10 +5,6 @@ Muchos estudiantes de enseñanza media usan las funciones trigonométricas bási
 Que los estudiantes de enseñanza media comprendan de una mejor forma lo que significan estas funciones mediante una herramienta didáctica que permita experimentar con ellas, tal que a través de su exploración visualicen y entiendan mejor conceptos de funciones trigonométricas y sus aplicaciones.
 
 ### Objetivos específicos del proyecto:
-### Hito 1:
-- Crear una primera versión funcional del proyecto en lenguaje C
-- Crear un Github con una clara organización y completo
-- Crear una presentación en video sobre el avance del proyecto  
 
 
 
@@ -21,6 +17,11 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 | **Nicole Zuñiga** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
 | **Daniel Vera** | **Equipo** | Escritura de código, ejecución de pruebas. |
 | **Vicente Arellano** | **Equipo** | Documentación técnica, mantenimiento del repositorio en GitHub y planificación del video. |
+
+### Hito 1:
+- Crear una primera versión funcional del proyecto en lenguaje C
+- Crear un Github con una clara organización y completo
+- Crear una presentación en video sobre el avance del proyecto  
 
 ### Funcionalidades implementadas:
 - Graficadora en el plano cartesiano
