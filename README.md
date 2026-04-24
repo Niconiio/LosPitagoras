@@ -26,9 +26,52 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 - Crear una presentación en video sobre el avance del proyecto  
 
 ### Funcionalidades implementadas:
-- Graficadora en el plano cartesiano (graf_xy)
-- Grafica función seno y coseno (fcoseno y fseno)
-- Círculo unitario (circle_u)
+
+- struct point
+
+struct point{
+int x;
+int y;
+char letra;
+};
+
+Descripción: Estructura de datos que representa un punto en el plano, con coordenadas enteras y un caracter que representa el punto en el gráfico.
+
+- Graficadora en el plano cartesiano (graf_xy):
+
+void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);
+
+Descripción: Recibe una arreglo de datos de tipo struct point y lo grafica en consola.
+
+Parametros:
+
+  struct point lista[]: arreglo de datos tipo struct point.
+  int tam: Tamaño del arreglo lista.
+  int y_max: entero que representa la altura maxima del grafico desde el origen.
+  int y_min: entero que representa la altura minima del grafico desde el origen.
+  int x_max: coordenada x maxima que tomara el grafico desde el origen.
+  int x_min: coordenada x minima que tomara el grafico desde el origen.
+  char relleno: Relleno alrededor del grafico.
+
+- Función seno y coseno (fcoseno y fseno):
+
+Descripción: Modifican un arreglo externo a ellas de tamaño fijo dado por x_min y x_max, 
+las funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones y asignando valores de x e y a cada punto del arreglo.
+
+- Círculo unitario (circle_u):
+
+void circle_u(float x, float y);
+
+Descripción: Reciben dos valores flotantes x e y, y ubica un punto en el circulo unitario.
+
+Nota: al evaluar x e y, se deben usar la función math especificando un angulo, talque x = cos(angulo) e y = sin(angulo).
+
+Ejemplo de uso: 
+
+  float angulo;
+  scanf("%f", &angulo);
+  circle_u(cos(angulo), sin(angulo))
+
 
 ### Avance logrado hasta ahora y próximos pasos hacia el Hito 2:
 - Se logró crear un programa basico sobre una graficadora de seno, coseno y circulo unitario
@@ -39,4 +82,4 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 ### Referencias:
 [Markdown](https://markdown.es/)
 [Aprende GIT ahora! curso completo GRATIS desde cero](https://www.youtube.com/watch?v=VdGzPZ31ts8)
-[C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
+     [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
