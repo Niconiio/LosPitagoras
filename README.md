@@ -2,7 +2,7 @@
 ### Problemática a solucionar: 
 Muchos estudiantes de enseñanza media usan las funciones trigonométricas básicas sin siquiera preguntarse qué significan, de donde vienen y sus posibles aplicaciones.
 ### Objetivo general del proyecto:
-Un programa que muestre gráficamente las funciones trigonométricas seno, coseno y tangente relacionando conceptos de la materia de MAT070 (Introducción al cálculo) y que, por ejemplo. Comprender qué significan estas funciones significaría una ayuda en los primeros ramos de ingeniería.
+Que los estudiantes de enseñanza media comprendan de una mejor forma lo que significan estas funciones mediante una herramienta didáctica que permita experimentar con ellas, tal que a través de su exploración visualicen y entiendan mejor conceptos de funciones trigonométricas y sus aplicaciones.
 
 ### Objetivos específicos del proyecto:
 ### Hito 1:
