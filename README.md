@@ -24,9 +24,12 @@ Un programa que muestre gráficamente las funciones trigonométricas seno, cosen
 
 ### Funcionalidades implementadas:
 - Graficadora en el plano cartesiano
-- Grafica función seno y coseno 
+- Grafica función seno y coseno
+- Círculo unitario 
 
-### Avance logrado hasta ahora y próximos pasos hacia el Hito 2.
+### Avance logrado hasta ahora y próximos pasos hacia el Hito 2:
+- Se logró crear un programa basico sobre una graficadora de seno, coseno y circulo unitario
+- Los pasos hacia el hito 2 será traducir el proyecto a C++ y representar resultados de manera visual.
 
 ### Documentos adicionales y anexos
 
