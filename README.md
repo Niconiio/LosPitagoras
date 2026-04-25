@@ -88,6 +88,8 @@ Ejemplo de uso:
 
 ### Documentos adicionales y anexos
 
+Compilación: gcc main.c implementacion.c encabezado.h -o nombre_archivo -lm
+
 ### Referencias:
 [Markdown](https://markdown.es/)
 [Aprende GIT ahora! curso completo GRATIS desde cero](https://www.youtube.com/watch?v=VdGzPZ31ts8)
