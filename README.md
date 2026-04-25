@@ -75,9 +75,9 @@ Nota: al evaluar x e y, se deben usar la función math especificando un angulo, 
 
 Ejemplo de uso: 
 
-  float angulo;
+  ```float angulo;
   scanf("%f", &angulo);
-  circle_u(cos(angulo), sin(angulo))
+  circle_u(cos(angulo), sin(angulo))```
 
 
 ### Avance logrado hasta ahora y próximos pasos hacia el Hito 2:
