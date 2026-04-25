@@ -60,6 +60,7 @@ Parametros:
 ```void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
 
 ```void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
+
 Descripción: Modifican un arreglo externo a ellas de tamaño fijo dado por x_min y x_max,
 
 las funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones y asignando valores de x e y a cada punto del arreglo.
@@ -77,7 +78,8 @@ Ejemplo de uso:
 
   ```float angulo;
   scanf("%f", &angulo);
-  circle_u(cos(angulo), sin(angulo))```
+  circle_u(cos(angulo), sin(angulo))
+```
 
 
 ### Avance logrado hasta ahora y próximos pasos hacia el Hito 2:
