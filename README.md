@@ -15,10 +15,10 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 | :--- | :--- | :--- |
 | **Yeremi Rodríguez** | **Product Owner** | Clarifica objetivos y resuelve dudas al equipo y realiza consultas al profesor. |
 | **Vicente Arellano** | **Scrum Master** | Facilita la organización y planifica las reuniones. |
-| **Yeremi Rodríguez** | **Equipo** | Escritura de código. |
+| **Yeremi Rodríguez** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
 | **Nicole Zuñiga** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
-| **Daniel Vera** | **Equipo** | Escritura de código, ejecución de pruebas. |
-| **Vicente Arellano** | **Equipo** | Documentación técnica, mantenimiento del repositorio en GitHub y planificación del video. |
+| **Daniel Vera** | **Equipo** | Escritura de código. |
+| **Vicente Arellano** | **Equipo** | Escritura de código, mantenimiento del repositorio en GitHub y planificación del video. |
 
 ### Hito 1:
 - Crear una primera versión funcional del proyecto en lenguaje C
