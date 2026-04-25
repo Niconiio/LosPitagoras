@@ -56,8 +56,10 @@ Parametros:
   char relleno: Relleno alrededor del grafico.
 
 - Función seno y coseno (fcoseno y fseno):
+```void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
+```void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
+Descripción: Modifican un arreglo externo a ellas de tamaño fijo dado por x_min y x_max,
 
-Descripción: Modifican un arreglo externo a ellas de tamaño fijo dado por x_min y x_max, 
 las funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones y asignando valores de x e y a cada punto del arreglo.
 
 - Círculo unitario (circle_u):
