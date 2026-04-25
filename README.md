@@ -68,6 +68,7 @@ las funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones
 
 ```void circle_u(float x, float y);```
 
+
 Descripción: Reciben dos valores flotantes x e y, y ubica un punto en el circulo unitario.
 
 Nota: al evaluar x e y, se deben usar la función math especificando un angulo, talque x = cos(angulo) e y = sin(angulo).
