@@ -3,7 +3,7 @@
 #include "encabezado.h"
 #include <math.h>
 #define pi 3.14159
-int escala_y= 8;
+int escala_y= 5;
 float x;
 float y;
 
