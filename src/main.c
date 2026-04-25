@@ -5,6 +5,7 @@
 
 int main(){
   int opcion;
+  int opcion_;
   int x_min;
   int x_max;
   int y_min;
@@ -16,12 +17,12 @@ int main(){
 
 //Grafica el seno, el coseno, y el circulo unitario.
   do{
-    printf("\nSeleccione que desea visualizar\n");//el usuario debe ingresar el numero correspondiente a la accion que desea realizar
-    printf("1)Funcion seno\n");
+    printf("\n\nSeleccione que desea visualizar\n");//el usuario debe ingresar el numero correspondiente a la accion que desea realizar
+    printf("\n1)Funcion seno\n");
     printf("2)Funcion coseno\n");
     printf("3)Visualizacion en el circulo unitario a partir de dos catetos\n");
     printf("0)Salir\n");
-    printf("Opcion:\n");
+    printf("\nOpcion:\n");
     scanf("%d",&opcion);
 
     switch (opcion){
@@ -55,16 +56,35 @@ int main(){
         break;
       }
       case 3:{
-        printf("Indique cual es el largo del primer cateto x: ");
-        scanf("%f",&cat1);
-        printf("Indique cual es el largo del segundo cateto y: " );
-        scanf("%f", &cat2);
+	      printf("Seleccione un opción:\n");
+	      printf("1) Angulo en grados\n");
+	      printf("2) Angulo en radianes dado por dos catetos\n");
+	
+	      scanf("%d",&opcion_);
+	      if (opcion_ == 1) {
+	
+		      float angulo;
+		      printf("Ingrese angulo en grados: ");
+		      scanf("%f", &angulo);
+		      float x= cos((angulo*pi)/180.0);
+		      float y= sin((angulo*pi)/180.0);
+		      circle_u(x, y);
+		      printf("\nRepresentación del punto (%.2f,%.2f) dado por %.2f° en el circulo unitario\n", x,y, angulo);
+	
+	      }else if(opcion_ == 2){
+		        printf("Indique cual es el largo del primer cateto x: ");
+		        scanf("%f",&cat1);
+		        printf("Indique cual es el largo del segundo cateto y: " );
+		        scanf("%f", &cat2);
+		        float angulo= atan2(cat2,cat1);
+		        float x= cos(angulo);
+		        float y= sin(angulo);
+		        circle_u(x, y);
+		        anguloentrecatetos(x, y);
+	      }else{
+	        printf("Opcion no admitida\n");
+	      }
 
-        float angulo= atan2(cat2,cat1);
-        float x= cos(angulo);
-        float y= sin(angulo);
-        circle_u(x, y);
-        anguloentrecatetos(x, y);
         break;
 
       }
