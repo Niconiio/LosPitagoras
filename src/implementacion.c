@@ -3,7 +3,10 @@
 #include "encabezado.h"
 #include <math.h>
 #define pi 3.14159
-int escala_y= 8;
+int escala_y= 5;
+float x;
+float y;
+
 
 float round_(float n){
     if ((n -(int) n)>= 0.5)
@@ -14,9 +17,12 @@ float round_(float n){
 void anguloentrecatetos(float x, float y){
     float angulohipad;
     float angulohipop;
-    angulohipop=abs(atan(y));
+    float tang= (y/x);
+    angulohipop=atan2(y,x);
     angulohipad=((pi/2) - angulohipop);
-    printf("El angulo que se forma entre la hipotenusa y el cateto adyacente:%f rad, y el angulo que se forma entre la hipotenusa y el cateto opuesto:%f rad", angulohipad,angulohipop);
+    printf("El angulo formado por la hipotenusa y el cateto adyacente es %f radianes\n", angulohipad);
+	printf("El angulo formado por la hipotenusa y el cateto opuesto es %f radianes", angulohipop);
+
 }
 void circle_u(float x, float y){
 
@@ -69,7 +75,6 @@ void circle_u(float x, float y){
 
         }
         printf("\n");
-
     }
 }
 
@@ -152,28 +157,28 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
     }
 }
 
-void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
-    tam = 0; //tamaño de la lista e indice para el for
+void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
+    *tam = 0; //tamaño de la lista e indice para el for
     for (int x = x_min; x <= x_max; x++) {
-        lista[tam].x = x;
-        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
-        lista[tam].letra = c;
-        (tam)++;
+        lista[*tam].x = x;
+        lista[*tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
+        lista[*tam].letra = c;
+        (*tam)++;
     }
 
 }
-void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
+void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
 
-    tam = 0; //tamaño de la lista e indice para el for
+    *tam = 0; //tamaño de la lista e indice para el for
 
     for (int x = x_min; x <= x_max; x++) {
-        lista[tam].x = x;
+        lista[*tam].x = x;
 
-        lista[tam].y = (int)(round_(cos(x / (float)(escala_y)) * escala_y));
+        lista[*tam].y = (int)(round_(cos(x / (float)(escala_y)) * escala_y));
 
-        lista[tam].letra = c;
+        lista[*tam].letra = c;
 
-        (tam)++;
+        (*tam)++;
 
     }
 
