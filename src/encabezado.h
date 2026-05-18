@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #ifndef encabezado_h
 #define encabezado_h
-
+#define pi 3.14159
 
 extern int escala_y;
 extern int x_min, x_max, y_min, y_max;
