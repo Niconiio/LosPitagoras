@@ -1,5 +1,8 @@
-#include <stdio.h>
+#include<iostream>
+#include<string>
 #include "encabezado.h"
+
+#include <stdio.h>
 #include <math.h>
 
 

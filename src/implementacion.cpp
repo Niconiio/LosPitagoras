@@ -1,8 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <string>
 #include "encabezado.h"
 #include <math.h>
-#define pi 3.14159
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
 int escala_y= 5;
 float x;
 float y;
