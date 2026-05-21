@@ -94,3 +94,4 @@ Compilación: gcc main.c implementacion.c encabezado.h -o nombre_archivo -lm
 [Markdown](https://markdown.es/)
 [Aprende GIT ahora! curso completo GRATIS desde cero](https://www.youtube.com/watch?v=VdGzPZ31ts8)
      [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
+[Herencia c++](https://learn.microsoft.com/es-es/cpp/cpp/inheritance-cpp?view=msvc-170)
