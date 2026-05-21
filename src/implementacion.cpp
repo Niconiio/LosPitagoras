@@ -190,46 +190,34 @@ void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_
 }
 */
 
-class Funcion{
-    public:
-        int *tam = 0;
-        //Agregrar los atributos comunes de todas las funciones
 
-};
-
-class Seno: public Funcion{
-    public:
-        void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
-
-            for (int x = x_min; x <= x_max; x++) {
-
-            lista[*tam].x = x;
-
-            lista[*tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
-
-            lista[*tam].letra = c;
-
-            (*tam)++;
-
-            }
-        }
-    };
-
-class Coseno: public Funcion{
-    public:
-        void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
+void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
 
         for (int x = x_min; x <= x_max; x++) {
 
-            lista[*tam].x = x;
+        lista[tam].x = x;
 
-            lista[*tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
+        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
 
-            lista[*tam].letra = c;
+        lista[tam].letra = c;
 
-            (*tam)++;
+        (tam)++;
+
+        }
+     };
+
+
+void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
+
+    for (int x = x_min; x <= x_max; x++) {
+
+        lista[tam].x = x;
+
+        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
+
+        lista[tam].letra = c;
+
+        (tam)++;
 
             }
-        }
-
-    };
+        };
