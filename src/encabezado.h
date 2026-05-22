@@ -13,31 +13,33 @@ extern int tamano;
 
 class graf{
   protected: 
-    std::vector<std::vector<int>> grafico_final;
+    std::vector<std::vector<int>> grafico_final; //El arreglo de coordenadas que va a graficarse, resultante de una función 
     int dom[2] = {0,0};
     int rec[2] = {0,0};
     char relleno;
-    std::vector<funcion> funciones;
-    int tam;
-  public:
+    std::vector<funcion> funciones; //Aquí varias funciones, cuyo grafico en coordenadas, sera enviado a grafico_final usando una interfaz comun mediante el metodo virtual funcion_()
+    int tam_graf_final;
+  public:  //Que pasa con tam?
     graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
-    void add_funcion(funcion A){funciones.push_back(A);}
+    void add_funcion_graficar(funcion A){funciones.push_back(A); grafico_final = funciones[funciones.size()-1].grafico; tam_graf_final = grafico_final.size(); graficar();} //Suponiendo que las funciones tienen atributos que estan completos; Esta metodo se utiliza en caso que se quiera graficar la ultima funcion directamente, puede haber otro para operaciones
+    void graficar(){graf_xy(grafico_final, tam_graf_final,rec[1], rec[0], dom[1], dom[0], relleno, funciones[funciones.size()-1].punto);} //grafica el ultimo, si o si se ejecuta despues de tener todo listo
    // void a(){graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno)} //Usar la función, y luego aplicarla
 };
+//Debo analizar el flujo, ver que apso con los parametros, en la abstraccion de funcion a objeto
 
 
 class funcion{
   protected:
     int dom[2] = {0,0};
     int rec[2] = {0,0};
-    char punto;
     int escala;
-    std::vector<std::vector<int>> grafico;
-    int tam_graf;
+    int tam_graf; //Su valor debe especificarse en el constructor
   public:
+    char punto;
+    std::vector<std::vector<int>> grafico;
     int Show_Tam(){tam_graf = grafico.size();return grafico.size();};
     //virtual std::vector<std::vector<int>> funcion_() = 0;
-    virtual std::vector<std::vector<int>> funcion_();
+    virtual std::vector<std::vector<int>> funcion_(){};
 };
 
 //Espero que en la clase graficadora, pueda hacer interactuar varias funciones y sumarlas entre si, para poder crear ondas raras con senos y cosenos
@@ -59,7 +61,7 @@ struct point{
 //Prototipos que se implementan en implementacion.c
 
 void circle_u(float x, float y);
-void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);
+void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra);
 void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
 float round_(float n);
