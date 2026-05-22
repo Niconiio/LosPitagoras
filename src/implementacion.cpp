@@ -7,6 +7,9 @@
 #include <stdlib.h>
 
 
+
+
+
 int escala_y= 5;
 float x;
 float y;
@@ -83,7 +86,7 @@ void circle_u(float x, float y){
 }
 
 
-void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno){
+void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra){
     char signo;
     int a;
     //Soluciona errores de input del usuario.
@@ -132,9 +135,9 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
             
             int fill = 1; //Flag de impresión
             //Recorre el array, imprime el punto si coincide la posición, si esto pasa ademas fill = 0.
-            for (int ind = 0; ind < tam; ind++){
-                if (lista[ind].x == j && lista[ind].y == i){
-                    printf("%c  ", lista[ind].letra);
+            for (int ind = 0; ind < tam_lista; ind++){
+                if (lista[ind][0] == j && lista[ind][1] == i){
+                    printf("%c  ",letra);
                     fill = 0;
                     
                 }
@@ -161,7 +164,7 @@ void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int
     }
 }
 
-/*
+
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
     tam = 0; //tamaño de la lista e indice para el for
     for (int x = x_min; x <= x_max; x++) {
@@ -188,9 +191,9 @@ void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_
     }
 
 }
-*/
 
 
+/*
 void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
 
         for (int x = x_min; x <= x_max; x++) {
@@ -204,7 +207,7 @@ void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, 
         (tam)++;
 
         }
-     };
+     }
 
 
 void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
@@ -220,4 +223,6 @@ void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y
         (tam)++;
 
             }
-        };
+        }
+
+*/
