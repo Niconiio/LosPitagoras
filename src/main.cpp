@@ -1,12 +1,16 @@
 #include<iostream>
 #include<string>
 #include "encabezado.h"
+using std::cout;
+using std::cin;
 
 #include <stdio.h>
-#include <math.h>
+#include <cmath>
 
 
 int main(){
+
+
   int opcion;
   int opcion_;
   int x_min;
@@ -20,20 +24,21 @@ int main(){
 
 //Grafica el seno, el coseno, y el circulo unitario.
   do{
-    printf("\n\nSeleccione que desea visualizar\n");//el usuario debe ingresar el numero correspondiente a la accion que desea realizar
-    printf("\n1)Funcion seno\n");
-    printf("2)Funcion coseno\n");
-    printf("3)Visualizacion en el circulo unitario a partir de dos catetos\n");
-    printf("0)Salir\n");
-    printf("\nOpcion:\n");
-    scanf("%d",&opcion);
+
+    cout<<"\n\nSeleccione que desea visualizar \n"; //el usuario debe ingresar el numero correspondiente a la accion que desea realizar
+    cout<<"\n1)Funcion seno\n";
+    cout<<"2)Funcion coseno\n";
+    cout<<"3)Visualizacion en el circulo unitario a partir de dos catetos\n";
+    cout<<"0)Salir\n";
+    cout<<"\nOpcion:\n";
+     cin>>opcion;
 
     switch (opcion){
       case 1:{
-        printf("ingrese el rango de visualizacion con un x minimo y un x_ maximo: ");
-        scanf("%d %d",&x_min, &x_max);
-        printf("ahora ingrese y minimo e y maximo: ");
-        scanf("%d %d",&y_min, &y_max);
+        cout<<"ingrese el rango de visualizacion con un x minimo y un x_ maximo: ";
+         cin>>x_min >>x_max;
+        cout<<"ahora ingrese y minimo e y maximo: ";
+         cin>>y_min >>y_max;
 
         int tamano = abs(x_max - x_min) + 1; //se define el tamaño de la lista
         int tam;
@@ -45,10 +50,10 @@ int main(){
       }
 
       case 2:{
-        printf("ingrese el rango de visualizacion con un x minimo y un x maximo: ");
-        scanf("%d %d",&x_min, &x_max);
-        printf("ahora ingrese y minimo e y maximo: ");
-        scanf("%d %d",&y_min, &y_max);
+        cout<<"ingrese el rango de visualizacion con un x minimo y un x maximo: ";
+         cin>>x_min >>x_max;
+        cout<<"ahora ingrese y minimo e y maximo: ";
+         cin>>y_min >>y_max;
 
         int tamano = abs(x_max - x_min) + 1;
         int tam;
@@ -59,46 +64,45 @@ int main(){
         break;
       }
       case 3:{
-	      printf("Seleccione un opción:\n");
-	      printf("1) Angulo en grados\n");
-	      printf("2) Angulo en radianes dado por dos catetos\n");
-	
-	      scanf("%d",&opcion_);
+	      cout<<"Seleccione un opción:\n";
+	      cout<<"1) Angulo en grados\n";
+	      cout<<"2) Angulo en radianes dado por dos catetos\n";
+	       cin>>opcion_;
 	      if (opcion_ == 1) {
 	
 		      float angulo;
-		      printf("Ingrese angulo en grados: ");
-		      scanf("%f", &angulo);
+		      cout<<"Ingrese angulo en grados: ";
+		       cin>>angulo;
 		      float x= cos((angulo*pi)/180.0);
 		      float y= sin((angulo*pi)/180.0);
 		      circle_u(x, y);
-		      printf("\nRepresentación del punto (%.2f,%.2f) dado por %.2f° en el circulo unitario\n", x,y, angulo);
+		      cout<<"\nRepresentación del punto ("<<x<<","<<y<<") dado por"<<angulo<<"° en el circulo unitario\n";
 	
 	      }else if(opcion_ == 2){
-		        printf("Indique cual es el largo del primer cateto x: ");
-		        scanf("%f",&cat1);
-		        printf("Indique cual es el largo del segundo cateto y: " );
-		        scanf("%f", &cat2);
+		       cout<<"Indique cual es el largo del primer cateto x: ";
+		        cin>>cat1;
+		       cout<<"Indique cual es el largo del segundo cateto y: ";
+		        cin>>cat2;
 		        float angulo= atan2(cat2,cat1);
 		        float x= cos(angulo);
 		        float y= sin(angulo);
 		        circle_u(x, y);
 		        anguloentrecatetos(x, y);
-	      }else{
-	        printf("Opcion no admitida\n");
 	      }
-
+	      else{
+	        cout<<"Opcion no admitida\n";
+		  }
         break;
 
       }
 
       case 0:{
-        printf("Termino del programa.\n");
+        cout<<"Termino del programa.\n";
         break;
       }
 
       default:{
-        printf("Opción no válida.\n");
+        cout<<"Opción no válida.\n";
         break;
       }
     }

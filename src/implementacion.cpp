@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include "encabezado.h"
-#include <math.h>
-
-#include <stdio.h>
+#include <cmath>
+//#include <stdio.h>
 #include <stdlib.h>
+using std::cout;
 
 int escala_y= 5;
 float x;
@@ -22,8 +22,8 @@ void anguloentrecatetos(float x, float y){
     float tang= (y/x);
     angulohipop=atan2(y,x);
     angulohipad=((pi/2) - angulohipop);
-    printf("El angulo formado por la hipotenusa y el cateto adyacente es %f radianes\n", angulohipad);
-	printf("El angulo formado por la hipotenusa y el cateto opuesto es %f radianes", angulohipop);
+    cout<<"El angulo formado por la hipotenusa y el cateto adyacente es " <<angulohipad<<"radianes\n";
+	cout<<"El angulo formado por la hipotenusa y el cateto opuesto es "<<angulohipop<<"radianes\n";
 }
 void circle_u(float x, float y){
 
@@ -43,32 +43,32 @@ void circle_u(float x, float y){
         for (int i = -20; i <= 20;i++){
             //El punto tiene prioridad sobre cualquier elemento del grafico, por eso se imprime primero
             if(x_ == i && y_ == j)
-                printf("O ");
+                cout<<"O ";
             else{
                 //Si no es el punto, entonces grafica el resto.
                 //Las condicionales, son conjuntos en R^2, hechos con fines esteticos para mostrar el seno y el coseno como componentes del punto
                 //Recta coseno al punto desde el origen
                 if (x_ < 0 && j == 0 && i >= x_ && i<=0)
-                    printf("c ");
+                    cout<<"c ";
                 else if (x_ > 0 && j == 0 && i <= x_ && i>=0)
-                    printf("c ");
+                    cout<<"c ";
                 //Recta seno al punto desde el origen
                 else if (y_ > 0 && i == x_ && j <= y_ && j>0)
-                    printf("s ");
+                    cout<<"s ";
                 else if (y_ < 0 && i == x_ && j >= y_ && j<0)
-                    printf("s ");
+                    cout<<"s ";
                 else{
                     //Conjunto en R^2 que representa de un circunferencia rellena de radio 12 centrada en el origen del plano
                     if((i*i + j*j)<= 144){
-                        printf(". ");
+                        cout<<". ";
                         //Complemento de este conjunto
                     }else
-                        printf("  ");
+                        cout<<"  ";
                 }
             }
             //Espacios entre filas
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 //Podria optimizar esta funcion 
@@ -95,23 +95,23 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
         //Se requiere generalizar para todo orden de magnitud, hasta ahora, el eje Y no distorcionará el grafico, siempre y cuando |y_max| < 1000
         if (abs(y_max) >= 100){
             if (abs(i) >= 100)
-                printf("%c%d||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                printf("%c%d ||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<" ||  ";
             else 
-                printf("%c%d  ||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<"  ||  ";
         } else if (abs(y_max) >= 10){
             if (abs(i) >= 10)
-                printf("%c%d||  ",signo, abs(i));
+                cout<<signo<<abs(i)<<"||  ";
             else 
-                printf("%c%d ||  ",signo, abs(i));
+                cout<<signo<<abs(i)<<" ||  ";
         } else {                
             if (abs(i) >= 100)
-                printf("%c%d||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                printf("%c%d ||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<" ||  ";
             else 
-                printf("%c%d  ||  ", signo, abs(i));
+                cout<<signo<<abs(i)<<"  ||  ";
         }
         int j;
         //Ubica puntos en eje x, rellena el grafico y crea eje x
@@ -121,22 +121,22 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
             for (int ind = 0; ind < tam_lista; ind++){
 
                 if (lista[ind][0] == j && lista[ind][1] == i){
-                    printf("%c  ",letra);
+                    cout<<letra;
                     fill = 0;
                 }
             }
             //Si no encontró ningun punto, imprime relleno o Eje x
             if (fill == 1)
                 if (i!= 0)
-                    printf("%c  ",relleno);
+                    cout<<relleno;
             //Si y= 0, imprime caracter de eje x
                 else
                     if (i == 0 && j == 0)
-                        printf("0  ");
+                        cout<<"0  ";
                     else
-                        printf("=  ");     
+                        cout<<"=  ";
         }
-    printf("\n");
+    cout<<"\n";
     }
 }
 //Seguramente deba usar un puntero, para esto, porque retorna el primer elemento del puntero
