@@ -6,14 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-
-
 int escala_y= 5;
 float x;
 float y;
-
 
 float round_(float n){
     if ((n -(int) n)>= 0.5)
@@ -29,7 +24,6 @@ void anguloentrecatetos(float x, float y){
     angulohipad=((pi/2) - angulohipop);
     printf("El angulo formado por la hipotenusa y el cateto adyacente es %f radianes\n", angulohipad);
 	printf("El angulo formado por la hipotenusa y el cateto opuesto es %f radianes", angulohipop);
-
 }
 void circle_u(float x, float y){
 
@@ -52,22 +46,18 @@ void circle_u(float x, float y){
                 printf("O ");
             else{
                 //Si no es el punto, entonces grafica el resto.
-
                 //Las condicionales, son conjuntos en R^2, hechos con fines esteticos para mostrar el seno y el coseno como componentes del punto
                 //Recta coseno al punto desde el origen
                 if (x_ < 0 && j == 0 && i >= x_ && i<=0)
                     printf("c ");
                 else if (x_ > 0 && j == 0 && i <= x_ && i>=0)
                     printf("c ");
-
                 //Recta seno al punto desde el origen
                 else if (y_ > 0 && i == x_ && j <= y_ && j>0)
                     printf("s ");
                 else if (y_ < 0 && i == x_ && j >= y_ && j<0)
                     printf("s ");
-
                 else{
-
                     //Conjunto en R^2 que representa de un circunferencia rellena de radio 12 centrada en el origen del plano
                     if((i*i + j*j)<= 144){
                         printf(". ");
@@ -75,17 +65,13 @@ void circle_u(float x, float y){
                     }else
                         printf("  ");
                 }
-
-
             }
             //Espacios entre filas
-
         }
         printf("\n");
     }
 }
-
-
+//Podria optimizar esta funcion 
 void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra){
     char signo;
     int a;
@@ -104,8 +90,7 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
         if (i < 0)
             signo = '-';
         else
-            signo = '+';
-        
+            signo = '+';      
         //Muestra el Eje de las ordenadas (Y) con los números, determina el espaciado entre los numeros y el eje.
         //Se requiere generalizar para todo orden de magnitud, hasta ahora, el eje Y no distorcionará el grafico, siempre y cuando |y_max| < 1000
         if (abs(y_max) >= 100){
@@ -130,16 +115,14 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
         }
         int j;
         //Ubica puntos en eje x, rellena el grafico y crea eje x
-        for (int j = x_min; j <= x_max; j++){
-
-            
+        for (int j = x_min; j <= x_max; j++){    
             int fill = 1; //Flag de impresión
             //Recorre el array, imprime el punto si coincide la posición, si esto pasa ademas fill = 0.
             for (int ind = 0; ind < tam_lista; ind++){
+
                 if (lista[ind][0] == j && lista[ind][1] == i){
                     printf("%c  ",letra);
                     fill = 0;
-                    
                 }
             }
             //Si no encontró ningun punto, imprime relleno o Eje x
@@ -151,18 +134,12 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
                     if (i == 0 && j == 0)
                         printf("0  ");
                     else
-                        printf("=  ");
-    /*
-            Idea descartada: No es posible mostrar numeros en el eje x sin deformar el grafico, se desea una solución alternativa.
-                if (i != 0)
-                    printf("%c  ",relleno);
-                else
-                    printf("%d  ", j);
-    */        
+                        printf("=  ");     
         }
     printf("\n");
     }
 }
+//Seguramente deba usar un puntero, para esto, porque retorna el primer elemento del puntero
 
 
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
@@ -193,36 +170,3 @@ void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_
 }
 
 
-/*
-void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
-
-        for (int x = x_min; x <= x_max; x++) {
-
-        lista[tam].x = x;
-
-        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
-
-        lista[tam].letra = c;
-
-        (tam)++;
-
-        }
-     }
-
-
-void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c) {
-
-    for (int x = x_min; x <= x_max; x++) {
-
-        lista[tam].x = x;
-
-        lista[tam].y = (int)(round_(sin(x/(float)(escala_y)) * escala_y));
-
-        lista[tam].letra = c;
-
-        (tam)++;
-
-            }
-        }
-
-*/
