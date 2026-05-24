@@ -14,7 +14,7 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 | Integrante | Rol Scrum | Responsabilidades Principales |
 | :--- | :--- | :--- |
 | **Yeremi Rodríguez** | **Product Owner** | Clarifica objetivos y resuelve dudas al equipo y realiza consultas al profesor. |
-| **Vicente Arellano** | **Scrum Master** | Facilita la organización y planifica las reuniones. |
+| **(H1)Vicente Arellano** | **Scrum Master** | Facilita la organización y planifica las reuniones. |
 | **Yeremi Rodríguez** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
 | **Nicole Zuñiga** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
 | **Daniel Vera** | **Equipo** | Escritura de código. |
