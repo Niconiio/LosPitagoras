@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<string>
 #include<vector>
+#include <cstdlib>
 #define pi 3.14159
 
 //#ifndef encabezado_h
@@ -34,6 +35,10 @@ class funcion{
 //Idea: Imitar El Teorema de Fourier, aprov
 //Funcion para sumar senos y cosenos, selecionar cuales sumar y operar entre ellos. 
 //Darle nombre a las funciones, y a las graficadoras, aprovechar el vector de funciones y gestionarlas  (interfaz) dentro del objeto para seleccionar cual graficar o sumar
+//LAs funciones pasan por valor, no por referencia
+
+//Otros modificadores, metodos que agregen texto al grafico, atrave de su posicion.
+
 
 
 class graf{
@@ -42,13 +47,24 @@ class graf{
     int dom[2] = {0,0};
     int rec[2] = {0,0};
     char relleno;
-    std::vector<funcion> funciones; //Aquí varias funciones, cuyo grafico en coordenadas, sera enviado a grafico_final usando una interfaz comun mediante el metodo virtual funcion_()
+    int target; //posicion de la Funcion a graficar
+    std::vector<funcion*> funciones; //Aquí varias funciones, cuyo grafico en coordenadas, sera enviado a grafico_final usando una interfaz comun mediante el metodo virtual funcion_()
     int tam_graf_final;
   public:  //Que pasa con tam? 
     std::string nombre;
-    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
-    void graficar(){graf_xy(grafico_final, tam_graf_final,rec[1], rec[0], dom[1], dom[0], relleno, funciones[funciones.size()-1].punto);} //grafica el ultimo, si o si se ejecuta despues de tener todo listo
-    void add_funcion_graficar(funcion A){funciones.push_back(A); grafico_final = funciones[funciones.size()-1].grafico; tam_graf_final = grafico_final.size(); graficar();} //Suponiendo que las funciones tienen atributos que estan completos; Esta metodo se utiliza en caso que se quiera graficar la ultima funcion directamente, puede haber otro para operaciones
+
+    void add_funcion(funcion A){funciones.push_back(&A);}; //Ahora almacena las funciones por referencia
+    
+    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){
+      rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
+    
+    void graficar(){
+    graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funciones[target]->punto);} //grafica el ultimo, si o si se ejecuta despues de tener todo listo
+  
+    void add_funcion_graficar(funcion A){funciones.push_back(&A); 
+    target = funciones.size()-1; 
+    grafico_final = funciones[target]->grafico; 
+    tam_graf_final = grafico_final.size(); graficar();} //Suponiendo que las funciones tienen atributos que estan completos; Esta metodo se utiliza en caso que se quiera graficar la ultima funcion directamente, puede haber otro para operaciones
 };
 
 

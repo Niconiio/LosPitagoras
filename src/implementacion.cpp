@@ -2,9 +2,9 @@
 #include <string>
 #include "encabezado.h"
 #include <math.h>
-
 #include <stdio.h>
 #include <stdlib.h>
+
 
 int escala_y= 5;
 float x;
@@ -33,7 +33,6 @@ void circle_u(float x, float y){
      *    Esta es una modificación de graf_xy hecha exclusivamente para representar un punto en el circulo unitario.
      *
      */
-
     //Utilizamos la función round_ y casting, para redondear al entero mas cercano.
     int x_ =(int)(round_(x*12));
     int y_ = (int)(round_(y*12));
@@ -95,23 +94,23 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
         //Se requiere generalizar para todo orden de magnitud, hasta ahora, el eje Y no distorcionará el grafico, siempre y cuando |y_max| < 1000
         if (abs(y_max) >= 100){
             if (abs(i) >= 100)
-                printf("%c%d||  ", signo, abs(i));
+                std::cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                printf("%c%d ||  ", signo, abs(i));
+                std::cout<<signo<<abs(i)<<" ||  ";
             else 
-                printf("%c%d  ||  ", signo, abs(i));
+                std::cout<<signo<<abs(i)<<"  ||  ";
         } else if (abs(y_max) >= 10){
             if (abs(i) >= 10)
-                printf("%c%d||  ",signo, abs(i));
+                std::cout<<signo<<abs(i)<<"||  ";
             else 
-                printf("%c%d ||  ",signo, abs(i));
+                std::cout<<signo<<abs(i)<<" ||  ";
         } else {                
             if (abs(i) >= 100)
-                printf("%c%d||  ", signo, abs(i));
+                std::cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                printf("%c%d ||  ", signo, abs(i));
-            else 
-                printf("%c%d  ||  ", signo, abs(i));
+                std::cout<<signo<<abs(i)<<" ||  ";
+            else
+                std::cout<<signo<<abs(i)<<"  ||  "; 
         }
         int j;
         //Ubica puntos en eje x, rellena el grafico y crea eje x
@@ -121,26 +120,24 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
             for (int ind = 0; ind < tam_lista; ind++){
 
                 if (lista[ind][0] == j && lista[ind][1] == i){
-                    printf("%c  ",letra);
+                    std::cout<<letra<<"  ";
                     fill = 0;
                 }
             }
             //Si no encontró ningun punto, imprime relleno o Eje x
             if (fill == 1)
                 if (i!= 0)
-                    printf("%c  ",relleno);
+                    std::cout<<relleno<<"  ";
             //Si y= 0, imprime caracter de eje x
                 else
                     if (i == 0 && j == 0)
-                        printf("0  ");
+                        std::cout<<"0  ";
                     else
-                        printf("=  ");     
+                        std::cout<<"=  "; 
         }
-    printf("\n");
+    std::cout<<std::endl;
     }
 }
-//Seguramente deba usar un puntero, para esto, porque retorna el primer elemento del puntero
-
 
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
     tam = 0; //tamaño de la lista e indice para el for
