@@ -33,7 +33,6 @@ void circle_u(float x, float y){
      *    Esta es una modificación de graf_xy hecha exclusivamente para representar un punto en el circulo unitario.
      *
      */
-
     //Utilizamos la función round_ y casting, para redondear al entero mas cercano.
     int x_ =(int)(round_(x*12));
     int y_ = (int)(round_(y*12));
@@ -139,8 +138,6 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
     cout<<"\n";
     }
 }
-//Seguramente deba usar un puntero, para esto, porque retorna el primer elemento del puntero
-
 
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c) {
     tam = 0; //tamaño de la lista e indice para el for
