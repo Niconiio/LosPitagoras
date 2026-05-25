@@ -94,23 +94,23 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
         //Se requiere generalizar para todo orden de magnitud, hasta ahora, el eje Y no distorcionará el grafico, siempre y cuando |y_max| < 1000
         if (abs(y_max) >= 100){
             if (abs(i) >= 100)
-                cout<<signo<<abs(i)<<"||  ";
+                std::cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                cout<<signo<<abs(i)<<" ||  ";
+                std::cout<<signo<<abs(i)<<" ||  ";
             else 
-                cout<<signo<<abs(i)<<"  ||  ";
+                std::cout<<signo<<abs(i)<<"  ||  ";
         } else if (abs(y_max) >= 10){
             if (abs(i) >= 10)
-                cout<<signo<<abs(i)<<"||  ";
+                std::cout<<signo<<abs(i)<<"||  ";
             else 
-                cout<<signo<<abs(i)<<" ||  ";
+                std::cout<<signo<<abs(i)<<" ||  ";
         } else {                
             if (abs(i) >= 100)
-                cout<<signo<<abs(i)<<"||  ";
+                std::cout<<signo<<abs(i)<<"||  ";
             else if (abs(i) >= 10)
-                cout<<signo<<abs(i)<<" ||  ";
-            else 
-                cout<<signo<<abs(i)<<"  ||  ";
+                std::cout<<signo<<abs(i)<<" ||  ";
+            else
+                std::cout<<signo<<abs(i)<<"  ||  "; 
         }
         int j;
         //Ubica puntos en eje x, rellena el grafico y crea eje x
@@ -120,22 +120,22 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
             for (int ind = 0; ind < tam_lista; ind++){
 
                 if (lista[ind][0] == j && lista[ind][1] == i){
-                    cout<<letra;
+                    std::cout<<letra<<"  ";
                     fill = 0;
                 }
             }
             //Si no encontró ningun punto, imprime relleno o Eje x
             if (fill == 1)
                 if (i!= 0)
-                    cout<<relleno;
+                    std::cout<<relleno<<"  ";
             //Si y= 0, imprime caracter de eje x
                 else
                     if (i == 0 && j == 0)
-                        cout<<"0  ";
+                        std::cout<<"0  ";
                     else
-                        cout<<"=  ";
+                        std::cout<<"=  "; 
         }
-    cout<<"\n";
+    std::cout<<std::endl;
     }
 }
 
