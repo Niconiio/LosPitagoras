@@ -96,6 +96,11 @@ class Coseno: public funcion{
       void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);
 };
 
+class Tangente: public funcion{
+
+    public:
+      void ftan(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
+};
 //Prototipos que se implementan en implementacion.c
 
 
@@ -103,6 +108,7 @@ void circle_u(float x, float y);
 
 void fcoseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
 void fseno(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
+void ftan(struct point lista[], int *tam, int x_min, int x_max, float escala_y, char c);
 float round_(float n);
 void anguloentrecatetos(float x, float y);
 //float abs1(float n);
