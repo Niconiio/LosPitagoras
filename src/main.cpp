@@ -1,10 +1,7 @@
 #include<iostream>
-#include<string>
 #include "encabezado.h"
 using std::cout;
 using std::cin;
-
-#include <stdio.h>
 #include <cmath>
 
 

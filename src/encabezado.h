@@ -1,11 +1,10 @@
-#include<stdlib.h>
+#include<iostream>
 #include<string>
 #include<vector>
 #include <cstdlib>
 #define pi 3.14159
 
-//#ifndef encabezado_h
-//#define encabezado_h
+
 
 extern int escala_y;
 extern int x_min, x_max, y_min, y_max;
@@ -109,7 +108,6 @@ float round_(float n);
 void anguloentrecatetos(float x, float y);
 
 
-//#endif
 
 
 

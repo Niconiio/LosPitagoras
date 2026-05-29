@@ -1,9 +1,8 @@
 #include <iostream>
-#include <string>
 #include "encabezado.h"
 #include <cmath>
-//#include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
+
 using std::cout;
 
 int escala_y= 5;
