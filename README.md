@@ -106,10 +106,68 @@ struct point {
 
 ### Descripción de las clases creadas, sus responsabilidades y relaciones principales (por ejemplo composición o herencia).
 
+#### - Clase funcion:
+
+```c
+class funcion{
+  protected:
+    int rec[2] = {0,0};
+    int escala; 
+    int tam_graf;
+  public:
+    std::string nombre;
+    char punto;
+    int dom[2] = {0,0};
+    std::vector<std::vector<int>> grafico;
+    int Show_Tam(){tam_graf = grafico.size();return grafico.size();};
+    virtual void funcion_(){};
+};
+```
+
+**Descripción:** clase base de las funciones seno y coseno, contiene los atributos necesarios para que las funciones realizadas en la entrega anterior puedan utilizarse como metodos de las clases derivadas.
 
 
+#### - Clase graf
 
-### Ejemplos de ejecución y resultados esperados
+```c
+class graf{
+  protected: 
+    std::vector<std::vector<int>> grafico_final; 
+    int dom[2];
+    int rec[2];
+    char relleno;
+    funcion funcion_objetivo;
+    int SI_funcion = 0;
+    int tam_graf_final;
+    std::string nombre_grafico;
+    std::string nombre_funcion;
+  public:  
+    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){
+      rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
+    void select_funcion(funcion A){SI_funcion = 1;funcion_objetivo = A; grafico_final = A.grafico; tam_graf_final = A.size();} 
+    void graficar(){     
+    if (SI_funcion){  
+    std::cout<< "Grafico de " << <<std::endl;
+    graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funcion_objetivo.punto);
+    }else{std::cout<<"No hay ninguna funciòn almacenada dentro del grafico"<<std::endl;}}
+};
+```
+
+Descripcion: Clase graficadora, contiene los atributos necesarios para que graf_xy funcione dentro de los metodos del la clase, su principalidad responsabilidad es graficar una función trigonometrica almacenada dentro.
+
+Atributos:
+
+- int dom[2]: Arreglo que almacena los extremos del dominio que se desea graficar.
+- int rec[2]: Arreglo que almacena los extremos del recorrido que se desa graficar.
+- char relleno: Relleno del grafico para regiones fuera de la curva de la funciòn a graficar.
+- funcion funcion_objetivo: Almacena la función que se va a graficar.
+- int SI_funcion = 0: flag, cuyo valor es 1 cuando funcion_objetivo es igual a un objeto de la clase funcion.
+- int tam_graf_final: Tamaño del vector que contiene los puntos del grafico de la funcion objetivo.
+- std::string nombre_grafico: Nombre del grafico, para objetios de esta clase, útil para identificar el objeto de otros.
+- std::string nombre_funcion: Nombre de la funcion objetivo.
+
+
+### Ejemplos de ejecución y resultados esperados 
 
 
 
