@@ -1,16 +1,18 @@
-#include<iostream>
+#include<stdlib.h>
 #include<string>
 #include<vector>
-#include <cstdlib>
+//#include <cstdlib>
+#include <iostream>
+
 #define pi 3.14159
 
-
+//#ifndef encabezado_h
+//#define encabezado_h
 
 extern int escala_y;
 extern int x_min, x_max, y_min, y_max;
 extern int tamano;
 
-//std::vector<std::vector<int>> cuadratic(std::vector<std::vector<int>> lista, int x_min, int x_max, float escala_y);
 void graf_xy(std::vector<std::vector<int>> lista, int tam,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra);
 
 class funcion{
@@ -20,7 +22,6 @@ class funcion{
     int tam_graf;
   public:
     std::string nombre;
-    std::string tipo;
     char punto;
     int dom[2] = {0,0};
     std::vector<std::vector<int>> grafico;
@@ -28,39 +29,29 @@ class funcion{
     virtual void funcion_(){};
 };
 
-
-
-
-
 void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<funcion> funciones, char relleno);
-
-
-
-
 
 class graf{
   protected: 
-    std::vector<std::vector<int>> grafico_final; //El arreglo de coordenadas que va a graficarse, resultante de una función 
+    std::vector<std::vector<int>> grafico_final; 
     int dom[2] = {0,0};
     int rec[2] = {0,0};
     char relleno;
-    int target; //posicion de la Funcion a graficar
-    std::vector<funcion> funciones; //Aquí varias funciones, cuyo grafico en coordenadas, sera enviado a grafico_final usando una interfaz comun mediante el metodo virtual funcion_()
+    funcion* funcion_objetivo;
+    int SI_funcion = 0;
     int tam_graf_final;
+    std::string nombre_grafico;
+    std::string nombre_funcion;
   public:  
-    std::string nombre;
-    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){
+    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){//int y_max, int y_min,int  x_max, int x_min, char relleno
       rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
-    void sumar_ultimas_3_funciones(){sumar3_funciones_graficar(funciones[funciones.size()-1],funciones[funciones.size()-2], funciones[funciones.size()-3], funciones, relleno);}
-    void add_funcion(funcion A){funciones.push_back(A);} //Pasa por valor una función al objeto graf
-    void graficar(){graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funciones[target].punto);} //grafica el ultimo, si o si se ejecuta despues de tener todo listo
-    void add_funcion_graficar(funcion A){funciones.push_back(A); 
-    target = funciones.size()-1; 
-    grafico_final = funciones[target].grafico; 
-    tam_graf_final = grafico_final.size(); graficar();} 
+    void select_funcion(funcion* A){SI_funcion = 1; funcion_objetivo = A; grafico_final = A->grafico; tam_graf_final = A->grafico.size(); nombre_funcion = A->nombre;} 
+    void graficar(){     
+    if (SI_funcion){  
+    std::cout<< "Grafico de " << nombre_funcion <<std::endl<<std::endl;
+    graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funcion_objetivo->punto);
+    }else{std::cout<<"No hay ninguna funciòn almacenada dentro del grafico"<<std::endl;}}
 };
-
-
 
 
 struct point{
@@ -100,6 +91,7 @@ void anguloentrecatetos(float x, float y);
 //float aprox_y(float y, float step);
 
 
+//#endif
 
 
 
