@@ -25,8 +25,35 @@ void anguloentrecatetos(float x, float y){
     cout<<"El angulo formado por la hipotenusa y el cateto adyacente es " <<angulohipad<<"radianes\n";
 	cout<<"El angulo formado por la hipotenusa y el cateto opuesto es "<<angulohipop<<"radianes\n";
 }
-void circle_u(float x, float y){
 
+
+//del ultimo al primero
+void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<funcion> funciones, char relleno){//Las funciones deben tener el mismo dominio para poder graficarse
+    
+      std::vector<int> A = {fA.dom[0], fA.dom[1]};
+      std::vector<int> B = {fB.dom[0], fB.dom[1]};
+      std::vector<int> C = {fC.dom[0], fB.dom[1]};
+      if (funciones.size()>=3 && (A==B && A == C) && fA.grafico.size() == fB.grafico.size() && fB.grafico.size() == fC.grafico.size()){
+          int y;
+          int x;
+          int min = 999;
+          int max = -999;
+          std::vector<std::vector<int>> temp = {};
+          for (int i = 0; i < fA.grafico.size(); i++){
+            x=fA.grafico[i][0];
+            y=fA.grafico[i][1]+fB.grafico[i][1] + fC.grafico[i][1];
+            temp.push_back({x,y});
+            if (y>max){max = y;}
+            if (y<min){min = y;}}
+          graf_xy(temp, temp.size(), max, min, fA.dom[1], fA.dom[0], relleno, fA.punto);
+          }else{std::cout<<"Suma imposible, las funciones tienen dominios distintos o hay menos de 3 funciones"<<std::endl;}
+        }
+
+
+
+
+
+void circle_u(float x, float y){
     /*Gracias a su simplicidad, el código de grax_xy permite graficar conjuntos cambiando las condicionales,
      *    basandose en eso, modificando algunas condicionales y reutilizando parte del código,
      *    es posible dibujar formas en el plano sin tanto esfuerzo y con un poco de creatividad.
@@ -70,6 +97,8 @@ void circle_u(float x, float y){
         cout<<"\n";
     }
 }
+
+
 //Podria optimizar esta funcion 
 void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra){
     char signo;
@@ -173,7 +202,7 @@ void ftan(struct point lista[], int *tam, int x_min, int x_max, float escala_y, 
 
         for (int x = x_min; x <= x_max; x++){
 
-            if ((pi)/2 % x != 0){    //se debe verificar las asintotas (multiplos de pi/2)
+            //if ((pi)/2 % x != 0){    //se debe verificar las asintotas (multiplos de pi/2)
         
             lista[*tam].x = x;
 
@@ -185,5 +214,5 @@ void ftan(struct point lista[], int *tam, int x_min, int x_max, float escala_y, 
 
             };
         }
-}
+
 
