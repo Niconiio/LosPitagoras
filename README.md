@@ -15,9 +15,9 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 | :--- | :--- | :--- |
 | **Yeremi Rodríguez** | **Product Owner** | Clarifica objetivos y resuelve dudas al equipo y realiza consultas al profesor. |
 | **Daniel Vera** | **Scrum Master** | Facilita la organización  |
-| **Yeremi Rodríguez** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y mantenimiento del repositorio en GitHub. |
-| **Nicole Zuñiga** | **Equipo** | Escritura de código, ejecución de pruebas técnicas y solución de errores. |
-| **Daniel Vera** | **Equipo** | Escritura de código, planificación del video. |
+| **Yeremi Rodríguez** | **Equipo** | Escritura de código, ejecución de pruebas técnicas, mantenimiento del repositorio en GitHub y solución de errores.|
+| **Nicole Zuñiga** | **Equipo** | Escritura de código, planificación del video|
+| **Daniel Vera** | **Equipo** | Escritura de código, planificación del video|
 
 ## Hito 1:
 - Crear una primera versión funcional del proyecto en lenguaje C
@@ -91,11 +91,6 @@ struct point {
 
 ## Hito 2:
 
-### Funcionalidades implementadas y las pruebas realizadas
-
-
-
-
 ### Cambios estructurales realizados al migrar desde C a C++
 
 **C++**: Se cambiaron todos los printf() y scanf(), por cin y cout, se cambio la biblioteca math por cmath.
@@ -125,6 +120,33 @@ class funcion{
 ```
 
 **Descripción:** clase base de las funciones seno y coseno, contiene los atributos necesarios para que las funciones realizadas en la entrega anterior puedan utilizarse como metodos de las clases derivadas.
+
+#### - Clase sinusoidal:
+```c
+class sinusoidal: public funcion{
+  int A;
+  int B;
+  int C;
+  int tipo;
+  public:
+    sinusoidal(int x_min, int x_max, int A_, int B_, int C_, char p, std::string nombre_, int tipo_){
+      punto = p; dom[0] = x_min; dom[1] = x_max; A = A_; B = B_; C = C_; nombre = nombre_; int tipo = tipo_;}
+      void funcion_(){
+        grafico = cos_sen(grafico, dom[0], dom[1], A,B,C, tipo); tam_graf = grafico.size();}
+};
+```
+Descripción: Representan al seno y al coseno, tiene los atributos necesarios para parametrizar esta función como una sinusoidal del tipo Asin(Bx + c) o Acos(Bx + c), su principal responsabilidad es generar el vector de vectores necesario para que la clase graf la grafique.
+
+Atributos:
+
+A,B,C: parametros de las funciones
+tipo: Permite seleccionar seno o coseno.
+
+Metodos:
+
+funcion_: Utiliza la funcion cos_sen para generar el grafico de la clase.
+sinusoidal(atributos..)
+
 
 
 #### - Clase graf
@@ -165,6 +187,12 @@ Atributos:
 - int tam_graf_final: Tamaño del vector que contiene los puntos del grafico de la funcion objetivo.
 - std::string nombre_grafico: Nombre del grafico, para objetios de esta clase, útil para identificar el objeto de otros.
 - std::string nombre_funcion: Nombre de la funcion objetivo.
+
+
+
+
+
+
 
 
 ### Ejemplos de ejecución y resultados esperados 
