@@ -13,7 +13,11 @@ extern int escala_y;
 extern int x_min, x_max, y_min, y_max;
 extern int tamano;
 
+
 void graf_xy(std::vector<std::vector<int>> lista, int tam,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra);
+std::vector<std::vector<int>> cos_sen(std::vector<std::vector<int>> lista, int x_min, int x_max, int A, int B, int C, int tipo);
+
+
 
 class funcion{
   protected:
@@ -28,6 +32,21 @@ class funcion{
     int Show_Tam(){tam_graf = grafico.size();return grafico.size();};
     virtual void funcion_(){};
 };
+
+
+class sinusoidal: public funcion{
+  int A;
+  int B;
+  int C;
+  int tipo;
+  public:
+    sinusoidal(int x_min, int x_max, int A_, int B_, int C_, char p, std::string nombre_, int tipo_){
+      punto = p; dom[0] = x_min; dom[1] = x_max; A = A_; B = B_; C = C_; nombre = nombre_; int tipo = tipo_;}
+      void funcion_(){
+        grafico = cos_sen(grafico, dom[0], dom[1], A,B,C, tipo); tam_graf = grafico.size();}
+};
+
+
 
 void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<funcion> funciones, char relleno);
 
@@ -52,7 +71,6 @@ class graf{
     graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funcion_objetivo->punto);
     }else{std::cout<<"No hay ninguna funciòn almacenada dentro del grafico"<<std::endl;}}
 };
-
 
 struct point{
   int x;

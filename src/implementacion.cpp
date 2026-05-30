@@ -5,6 +5,34 @@
 
 using std::cout;
 
+std::vector<std::vector<int>> sen_cos(std::vector<std::vector<int>> lista, int x_min, int x_max, int eleccion, int A, int B, int C ){
+    lista = {};
+    for (int x = x_min; x <= x_max; x++) {
+        if(eleccion == 1)
+        lista.push_back({x,(int)round_(A*sin(B*x+C))});
+        else if(eleccion == 2)
+        lista.push_back({x,(int)round_(A*cos(B*x+C))});
+}
+    return lista;}
+
+std::vector<std::vector<int>> cos_sen(std::vector<std::vector<int>> lista, int x_min, int x_max, int A, int B, int C, int tipo){
+    std::vector<std::vector<int>> b; 
+    lista = {};
+    std::vector<int> temp = {};
+
+    for (int x = x_min; x <= x_max; x++) {
+        temp.push_back(x);
+
+
+        temp.push_back(round_(A*sin(x/float(B))));
+
+
+        lista.push_back(temp);
+        temp = {};}
+    return lista;}
+
+
+
 int escala_y= 5;
 float x;
 float y;
@@ -47,9 +75,6 @@ void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<f
           graf_xy(temp, temp.size(), max, min, fA.dom[1], fA.dom[0], relleno, fA.punto);
           }else{std::cout<<"Suma imposible, las funciones tienen dominios distintos o hay menos de 3 funciones"<<std::endl;}
         }
-
-
-
 
 
 void circle_u(float x, float y){
