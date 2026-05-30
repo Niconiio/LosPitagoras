@@ -25,8 +25,5 @@ int main(){
     graf X(20, -20, -20,20,'-');
     X.select_funcion(&B);
     X.graficar();
-
-
-
     return 0;
 }
