@@ -2,47 +2,52 @@
 #include "encabezado.h"
 #include <cmath>
 #include <cstdlib>
-
+#include <vector>
 using std::cout;
 
-std::vector<std::vector<int>> sen_cos(std::vector<std::vector<int>> lista, int x_min, int x_max, int eleccion, int A, int B, int C ){
-    lista = {};
+graf::graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){//int y_max, int y_min,int  x_max, int x_min, char relleno
+      rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
+
+
+sinusoidal::sinusoidal(int x_min, int x_max, int A_, int B_, int C_, char p, std::string nombre_, int tipo_):tipo(tipo_){
+      punto = p; dom[0] = x_min; dom[1] = x_max; A = A_; B = B_; C = C_; nombre = nombre_;}
+
+void graf::select_funcion(funcion* A){SI_funcion = 1; funcion_objetivo = A; grafico_final = A->grafico; tam_graf_final = A->grafico.size(); nombre_funcion = A->nombre;} 
+
+void graf::graficar(){     
+    if (SI_funcion){  
+    std::cout<< "Grafico de " << nombre_funcion <<std::endl<<std::endl;
+    graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funcion_objetivo->punto);
+    }else{std::cout<<"No hay ninguna funciòn almacenada dentro del grafico"<<std::endl;}}
+
+//
+void sinusoidal::cos_sen(){
+    std::vector<std::vector<int>> temp = {}; 
+    int x_min = dom[0]; 
+    int x_max = dom[1];
+    int seno_x;
+    int coseno_x;
     for (int x = x_min; x <= x_max; x++) {
-        if(eleccion == 1)
-        lista.push_back({x,(int)round_(A*sin(B*x+C))});
-        else if(eleccion == 2)
-        lista.push_back({x,(int)round_(A*cos(B*x+C))});
+        if ((int)tipo == 1 ){
+            seno_x = (int)roundf(A*sin(x/float(B) + C));
+            temp.push_back({x, seno_x});
+        } else if ((int)tipo == 2){
+            coseno_x =  (int)roundf(A*cos(x/float(B) + C));
+            temp.push_back({x, coseno_x});
+         }  
+    } grafico = temp;
 }
-    return lista;}
 
-std::vector<std::vector<int>> cos_sen(std::vector<std::vector<int>> lista, int x_min, int x_max, int A, int B, int C, int tipo){
-    std::vector<std::vector<int>> b; 
-    lista = {};
-    std::vector<int> temp = {};
-
-    for (int x = x_min; x <= x_max; x++) {
-        temp.push_back(x);
-
-
-        temp.push_back(round_(A*sin(x/float(B))));
-
-
-        lista.push_back(temp);
-        temp = {};}
-    return lista;}
-
-
-
-int escala_y= 5;
-float x;
-float y;
-
+/*
 float round_(float n){
     if ((n -(int) n)>= 0.5)
         return (int) n +1.0;
     else
         return (float)((int) n);
 }
+*/
+
+
 void anguloentrecatetos(float x, float y){
     float angulohipad;
     float angulohipop;
@@ -54,7 +59,7 @@ void anguloentrecatetos(float x, float y){
 }
 
 
-//del ultimo al primero
+/*
 void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<funcion> funciones, char relleno){//Las funciones deben tener el mismo dominio para poder graficarse
     
       std::vector<int> A = {fA.dom[0], fA.dom[1]};
@@ -75,27 +80,23 @@ void sumar3_funciones_graficar(funcion fA, funcion fB, funcion fC, std::vector<f
           graf_xy(temp, temp.size(), max, min, fA.dom[1], fA.dom[0], relleno, fA.punto);
           }else{std::cout<<"Suma imposible, las funciones tienen dominios distintos o hay menos de 3 funciones"<<std::endl;}
         }
+*/
+//Se reemplazó circle_u por un metodo, se soluciona error en la función circle_u
 
 
-void circle_u(float x, float y){
-    /*Gracias a su simplicidad, el código de grax_xy permite graficar conjuntos cambiando las condicionales,
-     *    basandose en eso, modificando algunas condicionales y reutilizando parte del código,
-     *    es posible dibujar formas en el plano sin tanto esfuerzo y con un poco de creatividad.
-     *    Esta es una modificación de graf_xy hecha exclusivamente para representar un punto en el circulo unitario.
-     *
-     */
-    //Utilizamos la función round_ y casting, para redondear al entero mas cercano.
-    int x_ =(int)(round_(x*12));
-    int y_ = (int)(round_(y*12));
+void circulo::circle_u(){
+
+    int x_ =(int)(roundf((float)x*radio));
+    int y_ = (int)(roundf((float)y*radio));
 
     //Ambos ciclos for recorren las coordenadas tales filas de una matriz, pero j va de mayor a menor
-    for (int j = 20; j >= -20;j--){
-        for (int i = -20; i <= 20;i++){
-            //El punto tiene prioridad sobre cualquier elemento del grafico, por eso se imprime primero
+    for (int j = radio + 8; j >= -(radio+8);j--){
+        for (int i = -(radio + 8); i <= (radio + 8);i++){
             if(x_ == i && y_ == j)
                 cout<<"O ";
             else{
                 //Si no es el punto, entonces grafica el resto.
+
                 //Las condicionales, son conjuntos en R^2, hechos con fines esteticos para mostrar el seno y el coseno como componentes del punto
                 //Recta coseno al punto desde el origen
                 if (x_ < 0 && j == 0 && i >= x_ && i<=0)
@@ -105,25 +106,26 @@ void circle_u(float x, float y){
                 //Recta seno al punto desde el origen
                 else if (y_ > 0 && i == x_ && j <= y_ && j>0)
                     cout<<"s ";
+
                 else if (y_ < 0 && i == x_ && j >= y_ && j<0)
                     cout<<"s ";
                 else{
                     //Conjunto en R^2 que representa de un circunferencia rellena de radio 12 centrada en el origen del plano
-                    if((i*i + j*j)<= 144){
+                    if((i*i + j*j)<= radio*radio){
                         cout<<". ";
+                        //printf(". ");
                         //Complemento de este conjunto
                     }else
                         cout<<"  ";
+                        //printf("  ");
                 }
             }
-            //Espacios entre filas
         }
-        cout<<"\n";
+        cout<<std::endl;
     }
 }
 
 
-//Podria optimizar esta funcion 
 void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra){
     char signo;
     int a;
@@ -182,7 +184,7 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam_lista,int y_max, int y
                 if (i!= 0)
                     std::cout<<relleno<<"  ";
             //Si y= 0, imprime caracter de eje x
-                else
+                else //Caracteristicas del grafico
                     if (i == 0 && j == 0)
                         std::cout<<"0  ";
                     else
