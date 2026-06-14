@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_TrigonometryViewer_FILE /home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/TrigonometryViewer)
+set(__QT_DEPLOY_TARGET_TrigonometryViewer_TYPE EXECUTABLE)

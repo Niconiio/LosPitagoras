@@ -25,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
      QLineSeries* series = new QLineSeries;
      series->append(1,2);
-     series->append(8,3);
-     series->append(3,2);
+     series->append(2,3);
+     series->append(4,5);
      QChart*chart=new QChart();
      chart->addSeries(series);
      chart->legend()->hide();

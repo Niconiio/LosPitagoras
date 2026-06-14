@@ -1,0 +1,9 @@
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/TrigonometryViewer.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/edit_cache.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/rebuild_cache.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/list_install_components.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/install.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/install/local.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/install/strip.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/TrigonometryViewer_autogen_timestamp_deps.dir
+/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/CMakeFiles/TrigonometryViewer_autogen.dir
