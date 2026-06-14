@@ -8,8 +8,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/TrigonometryViewer.dir/main.cpp.o.d"
   "CMakeFiles/TrigonometryViewer.dir/mainwindow.cpp.o"
   "CMakeFiles/TrigonometryViewer.dir/mainwindow.cpp.o.d"
-  "CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.o"
-  "CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.o.d"
   "TrigonometryViewer"
   "TrigonometryViewer.pdb"
 )

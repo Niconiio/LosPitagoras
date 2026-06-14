@@ -272,30 +272,6 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TrigonometryViewer.dir/build.make CMakeFiles/TrigonometryViewer.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
-qcustomplot.o: qcustomplot.cpp.o
-.PHONY : qcustomplot.o
-
-# target to build an object file
-qcustomplot.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TrigonometryViewer.dir/build.make CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.o
-.PHONY : qcustomplot.cpp.o
-
-qcustomplot.i: qcustomplot.cpp.i
-.PHONY : qcustomplot.i
-
-# target to preprocess a source file
-qcustomplot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TrigonometryViewer.dir/build.make CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.i
-.PHONY : qcustomplot.cpp.i
-
-qcustomplot.s: qcustomplot.cpp.s
-.PHONY : qcustomplot.s
-
-# target to generate assembly for a file
-qcustomplot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TrigonometryViewer.dir/build.make CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.s
-.PHONY : qcustomplot.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -320,9 +296,6 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
-	@echo "... qcustomplot.o"
-	@echo "... qcustomplot.i"
-	@echo "... qcustomplot.s"
 .PHONY : help
 
 

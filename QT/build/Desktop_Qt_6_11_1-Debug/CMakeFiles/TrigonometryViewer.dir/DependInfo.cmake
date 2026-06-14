@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/niio/Descargas/LosPitagoras/QT/build/Desktop_Qt_6_11_1-Debug/TrigonometryViewer_autogen/mocs_compilation.cpp" "CMakeFiles/TrigonometryViewer.dir/TrigonometryViewer_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/TrigonometryViewer.dir/TrigonometryViewer_autogen/mocs_compilation.cpp.o.d"
   "/home/niio/Descargas/LosPitagoras/QT/main.cpp" "CMakeFiles/TrigonometryViewer.dir/main.cpp.o" "gcc" "CMakeFiles/TrigonometryViewer.dir/main.cpp.o.d"
   "/home/niio/Descargas/LosPitagoras/QT/mainwindow.cpp" "CMakeFiles/TrigonometryViewer.dir/mainwindow.cpp.o" "gcc" "CMakeFiles/TrigonometryViewer.dir/mainwindow.cpp.o.d"
-  "/home/niio/Descargas/LosPitagoras/QT/qcustomplot.cpp" "CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.o" "gcc" "CMakeFiles/TrigonometryViewer.dir/qcustomplot.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

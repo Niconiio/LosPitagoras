@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-fd4674f37696f404d8f1.json",
+					"jsonFile" : "directory-.-Debug-262c050e6856934da67c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TrigonometryViewer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TrigonometryViewer-Debug-a0d76a3931b9f9dc6516.json",
+					"jsonFile" : "target-TrigonometryViewer-Debug-262a6faf459a760c95cf.json",
 					"name" : "TrigonometryViewer",
 					"projectIndex" : 0
 				},

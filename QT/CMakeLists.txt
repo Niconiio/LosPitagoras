@@ -11,21 +11,6 @@ qt_add_executable(TrigonometryViewer
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    qcustomplot.h
-    qcustomplot.cpp
-
-
-
-
-
-
-
-
-
-
-
-
-
 )
 
 target_link_libraries(TrigonometryViewer
