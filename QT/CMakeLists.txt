@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.19)
 project(TrigonometryViewer LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Charts)
-
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Charts PrintSupport)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 qt_standard_project_setup()
 
 qt_add_executable(TrigonometryViewer
@@ -11,6 +13,10 @@ qt_add_executable(TrigonometryViewer
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    qcustomplot.h
+    qcustomplot.cpp
+
+
 )
 
 target_link_libraries(TrigonometryViewer
@@ -18,6 +24,7 @@ target_link_libraries(TrigonometryViewer
         Qt::Core
         Qt::Widgets
         Qt::Charts
+        Qt::PrintSupport
 )
 
 install(TARGETS TrigonometryViewer

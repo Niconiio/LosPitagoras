@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtCharts>
 #include <QApplication>
-
+#include <QPainter>
 
 
 
@@ -16,17 +16,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-    QObject::connect(ui->SenoBtn, &QPushButton::clicked, this,[this](){
+    QObject::connect(ui->senoBtn, &QPushButton::clicked, this,[this](){
 
 
 
 
-    if (count > 0) {ui->Grafico->removeWidget(temp);}
+    if (count > 0) {ui->GraficoSeno->removeWidget(temp);}
 
      QLineSeries* series = new QLineSeries;
      series->append(1,2);
-     series->append(8,3);
-     series->append(3,2);
+     series->append(2,3);
+     series->append(4,5);
      QChart*chart=new QChart();
      chart->addSeries(series);
      chart->legend()->hide();
@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
      QChartView *chartView = new QChartView(chart);
      //ui->Grafico->addWidget(chartView);
      chartView->setRenderHint(QPainter::Antialiasing);
-     ui->Grafico->addWidget(chartView);
+     ui->GraficoSeno->addWidget(chartView);
      temp = chartView;
      count+=1;
 
@@ -46,6 +46,4 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-
+]
