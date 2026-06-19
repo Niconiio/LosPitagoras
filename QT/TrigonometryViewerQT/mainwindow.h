@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QtCharts>
 #include <QMainWindow>
+//#include <QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,12 +19,15 @@ public:
     ~MainWindow() override;
 private slots:
 
+
 private:
 
     QChartView* temp;
     int count = 0;
     Ui::Fondo *ui;
 };
+
+
 
 
 

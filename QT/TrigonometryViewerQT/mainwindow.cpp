@@ -2,9 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtCharts>
 #include <QApplication>
-
-
-
+//#include <QPainter>
 
 
 
@@ -14,12 +12,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    this->setCentralWidget(ui->Tab_principal);
 
 
-    QObject::connect(ui->senoBtn, &QPushButton::clicked, this,[this](){
+    QObject::connect(ui->GraficarSeno, &QPushButton::clicked, this,[this](){
 
 
-
+    //Dentro de Connect
 
     if (count > 0) {ui->GraficoSeno->removeWidget(temp);}
 
@@ -33,9 +32,9 @@ MainWindow::MainWindow(QWidget *parent)
      chart->createDefaultAxes();
      chart->setTitle("Función Seno");
      QChartView *chartView = new QChartView(chart);
-     ui->Grafico->addWidget(chartView);
+     //ui->Grafico->addWidget(chartView);
      //chartView->setRenderHint(QPainter::Antialiasing);
-     //ui->GraficoSeno->addWidget(chartView);
+     ui->GraficoSeno->addWidget(chartView);
      temp = chartView;
      count+=1;
 
@@ -46,4 +45,4 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-]
+}
