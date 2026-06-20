@@ -55,289 +55,337 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="Tab_principal">
+   <widget class="QPushButton" name="EDITAR">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>861</width>
-      <height>621</height>
+      <x>640</x>
+      <y>590</y>
+      <width>80</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="currentIndex">
-     <number>0</number>
+    <property name="text">
+     <string>EDIT</string>
     </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QWidget" name="formLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>540</x>
-        <y>200</y>
-        <width>211</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="Layout_parametros_coseno">
-       <item row="1" column="0">
-        <widget class="QSpinBox" name="spinBox"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="A_coseno">
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>40</y>
+      <width>771</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QTabWidget" name="Tab_principal">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Sinusoidales</string>
+        </attribute>
+        <widget class="QWidget" name="formLayoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>200</y>
+           <width>211</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <layout class="QFormLayout" name="Layout_parametros_coseno">
+          <item row="1" column="0">
+           <widget class="QSpinBox" name="spinBox"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="A_coseno">
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QSpinBox" name="spinBox_2"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QSpinBox" name="spinBox_3"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="C_coseno">
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="B_coseno">
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QPushButton" name="GraficarCoseno">
+            <property name="text">
+             <string>Graficar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Parametros de la función coseno</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="formLayoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>540</x>
+           <y>30</y>
+           <width>208</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <layout class="QFormLayout" name="Layout_parametros_seno">
+          <item row="1" column="0">
+           <widget class="QSpinBox" name="spinBox_A_seno"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="A_seno">
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QSpinBox" name="spinBox_B_seno"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="B_seno">
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="C_seno">
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QPushButton" name="GraficarSeno">
+            <property name="text">
+             <string>Graficar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Parametros de la función Seno</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QSpinBox" name="spinBox_C_seno"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="verticalLayoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>280</y>
+           <width>231</width>
+           <height>241</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="GraficoCoseno"/>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>250</y>
+           <width>151</width>
+           <height>20</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>A</string>
+          <string>Grafico Seno</string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QSpinBox" name="spinBox_2"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QSpinBox" name="spinBox_3"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="C_coseno">
+        <widget class="QWidget" name="verticalLayoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>281</width>
+           <height>181</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="GraficoSeno"/>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>10</y>
+           <width>151</width>
+           <height>20</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>C</string>
+          <string>Grafico de Coseno</string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="B_coseno">
-         <property name="text">
-          <string>B</string>
+        <widget class="QLCDNumber" name="lcdNumber">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>50</y>
+           <width>64</width>
+           <height>23</height>
+          </rect>
          </property>
         </widget>
-       </item>
-       <item row="4" column="0" colspan="2">
-        <widget class="QPushButton" name="GraficarCoseno">
-         <property name="text">
-          <string>Graficar</string>
+        <widget class="QLCDNumber" name="lcdNumber_2">
+         <property name="geometry">
+          <rect>
+           <x>460</x>
+           <y>90</y>
+           <width>64</width>
+           <height>23</height>
+          </rect>
          </property>
         </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label">
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Circulo Unitario</string>
+        </attribute>
+        <widget class="QLabel" name="label_angulo">
+         <property name="geometry">
+          <rect>
+           <x>370</x>
+           <y>340</y>
+           <width>54</width>
+           <height>17</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>Parametros de la función coseno</string>
+          <string>Angulo °</string>
          </property>
         </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="formLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>540</x>
-        <y>30</y>
-        <width>208</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <layout class="QFormLayout" name="Layout_parametros_seno">
-       <item row="1" column="0">
-        <widget class="QSpinBox" name="spinBox_4"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="A_seno">
+        <widget class="QLabel" name="label_catad">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>340</y>
+           <width>101</width>
+           <height>17</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>A</string>
+          <string>Cateto Adyacente</string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QSpinBox" name="spinBox_5"/>
-       </item>
-       <item row="2" column="1">
-        <widget class="QPushButton" name="B_seno">
+        <widget class="QLabel" name="label_hipo">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>340</y>
+           <width>71</width>
+           <height>20</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>B</string>
+          <string>Hipotenusa</string>
          </property>
         </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QSpinBox" name="spinBox_6"/>
-       </item>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="C_seno">
-         <property name="text">
-          <string>C</string>
+        <widget class="QDoubleSpinBox" name="anguloSpinBox">
+         <property name="geometry">
+          <rect>
+           <x>370</x>
+           <y>300</y>
+           <width>62</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="minimum">
+          <double>0.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>180.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
          </property>
         </widget>
-       </item>
-       <item row="4" column="0" colspan="2">
-        <widget class="QPushButton" name="GraficarSeno">
+        <widget class="QLabel" name="label_catop">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>340</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
          <property name="text">
-          <string>Graficar</string>
+          <string>Cateto opuesto</string>
          </property>
         </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Parametros de la función Seno</string>
+        <widget class="QDoubleSpinBox" name="catopSpinBox">
+         <property name="geometry">
+          <rect>
+           <x>121</x>
+           <y>300</y>
+           <width>91</width>
+           <height>26</height>
+          </rect>
          </property>
         </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>290</y>
-        <width>231</width>
-        <height>241</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="GraficoCoseno"/>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>270</y>
-        <width>151</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grafico de Coseno</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>231</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="GraficoSeno"/>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>10</y>
-        <width>151</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Grafico de Coseno</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <widget class="QLabel" name="label_angulo">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>340</y>
-        <width>54</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Angulo °</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_catad">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>340</y>
-        <width>101</width>
-        <height>17</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Cateto Adyacente</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_hipo">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>340</y>
-        <width>71</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Hipotenusa</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="anguloSpinBox">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>300</y>
-        <width>62</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="minimum">
-       <double>0.000000000000000</double>
-      </property>
-      <property name="maximum">
-       <double>180.000000000000000</double>
-      </property>
-      <property name="value">
-       <double>0.000000000000000</double>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_catop">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>340</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Cateto opuesto</string>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="catopSpinBox">
-      <property name="geometry">
-       <rect>
-        <x>121</x>
-        <y>300</y>
-        <width>91</width>
-        <height>26</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="hipoSpinBox">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>300</y>
-        <width>62</width>
-        <height>26</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QDoubleSpinBox" name="catadSpinBox">
-      <property name="geometry">
-       <rect>
-        <x>21</x>
-        <y>306</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
+        <widget class="QDoubleSpinBox" name="hipoSpinBox">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>300</y>
+           <width>62</width>
+           <height>26</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="catadSpinBox">
+         <property name="geometry">
+          <rect>
+           <x>21</x>
+           <y>306</y>
+           <width>81</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -354,5 +402,38 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>spinBox_A_seno</sender>
+   <signal>returnPressed()</signal>
+   <receiver>EDITAR</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>622</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_B_seno</sender>
+   <signal>returnPressed()</signal>
+   <receiver>EDITAR</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>622</x>
+     <y>161</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>679</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

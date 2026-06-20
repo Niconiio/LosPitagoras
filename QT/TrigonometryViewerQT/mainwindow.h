@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QtCharts>
 #include <QMainWindow>
+#include "sinusoidales.h"
 //#include <QPainter>
 
 QT_BEGIN_NAMESPACE
@@ -10,6 +11,9 @@ class Fondo;
 }
 QT_END_NAMESPACE
 
+
+
+//Aquí
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -22,9 +26,18 @@ private slots:
 
 private:
 
+
+
     QChartView* temp;
     int count = 0;
     Ui::Fondo *ui;
+    sinusoidal seno;
+    sinusoidal coseno;
+    QLineSeries* series_seno = new QLineSeries; //Puede mantenrse
+    QChart* chart_seno= new QChart(); //Puede mantenerse
+    QChartView* chartView_seno = new QChartView(chart_seno);
+
+
 };
 
 
