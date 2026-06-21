@@ -33,7 +33,7 @@ class funcion{
   public:
     std::string nombre;
     char punto;
-    float dom[2] = {0,0};
+
     std::vector<std::vector<float>> grafico;
     //int Show_Tam(){tam_graf = grafico.size();return grafico.size();};
 };
@@ -41,15 +41,17 @@ class funcion{
 class sinusoidal: public funcion{
     float A, B, C;
 
-    int tipo; //Tipo 1 seno, tipo 2 coseno
+     //Tipo 1 seno, tipo 2 coseno
   public:
+    int tipo;
     float rec[2];
+    float dom[2];
     int get_tipo(){return tipo;}
     void set_A(float A_){A = A_;}
     void set_B(float B_){B = B_;}
     void set_C(float C_){C = C_;}
     void set_tipo(int eleccion){tipo = eleccion;}
-    sinusoidal(){A = 0; B = 0; C = 0; tipo = 1;}
+    sinusoidal(){A = 1; B = 1; C = 0; tipo = 1;}
     sinusoidal(int x_min, int x_max, int A_, int B_, int C_, char p, std::string nombre_, int tipo_);
     void cos_sen();
 };

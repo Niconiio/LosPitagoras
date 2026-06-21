@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>899</width>
+    <width>1096</width>
     <height>654</height>
    </rect>
   </property>
@@ -58,8 +58,8 @@
    <widget class="QTabWidget" name="Tab_principal">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>300</y>
+      <x>850</x>
+      <y>90</y>
       <width>131</width>
       <height>291</height>
      </rect>
@@ -188,21 +188,25 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>381</width>
-      <height>251</height>
+      <x>20</x>
+      <y>10</y>
+      <width>361</width>
+      <height>231</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="GraficoSeno"/>
+    <layout class="QVBoxLayout" name="GraficoSeno">
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+    </layout>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>300</y>
+      <x>390</x>
+      <y>10</y>
       <width>381</width>
-      <height>261</height>
+      <height>231</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="GraficoCoseno"/>
@@ -210,13 +214,20 @@
    <widget class="QWidget" name="formLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>60</y>
+      <x>110</x>
+      <y>260</y>
       <width>211</width>
-      <height>151</height>
+      <height>181</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="Layout_parametros_seno">
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Parametros de la función Seno</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <widget class="QSpinBox" name="spinBox_A_seno">
        <property name="minimum">
@@ -251,6 +262,9 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="0">
+      <widget class="QSpinBox" name="spinBox_C_seno"/>
+     </item>
      <item row="3" column="1">
       <widget class="QPushButton" name="C_seno">
        <property name="text">
@@ -259,31 +273,39 @@
       </widget>
      </item>
      <item row="4" column="0" colspan="2">
-      <widget class="QPushButton" name="GraficarSeno">
-       <property name="text">
-        <string>Graficar</string>
+      <widget class="QSlider" name="Desplazamiento_horizontal_seno">
+       <property name="cursor">
+        <cursorShape>OpenHandCursor</cursorShape>
+       </property>
+       <property name="minimum">
+        <number>-10</number>
+       </property>
+       <property name="maximum">
+        <number>10</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
+       </property>
+       <property name="invertedControls">
+        <bool>false</bool>
        </property>
       </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Parametros de la función Seno</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QSpinBox" name="spinBox_C_seno"/>
      </item>
     </layout>
    </widget>
    <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>300</y>
+      <x>390</x>
+      <y>250</y>
       <width>220</width>
-      <height>151</height>
+      <height>211</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="Layout_parametros_coseno">
@@ -317,13 +339,6 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QPushButton" name="GraficarCoseno">
-       <property name="text">
-        <string>Graficar</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0" colspan="2">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -331,59 +346,32 @@
        </property>
       </widget>
      </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QSlider" name="Desplazamiento_horizontal_coseno">
+       <property name="cursor">
+        <cursorShape>OpenHandCursor</cursorShape>
+       </property>
+       <property name="minimum">
+        <number>-10</number>
+       </property>
+       <property name="maximum">
+        <number>10</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="invertedAppearance">
+        <bool>false</bool>
+       </property>
+       <property name="invertedControls">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>0</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Grafico de Seno</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>280</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Grafico Coseno</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>240</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Desplazamiento</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>240</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Atras</string>
-    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
