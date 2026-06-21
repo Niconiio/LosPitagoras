@@ -21,7 +21,7 @@ void sinusoidal::cos_sen(){
             seno_x =(A*sin(x*B + C));
             temp.push_back({x, seno_x});
         } else if ((int)tipo == 2){
-            coseno_x =  (int)roundf(A*cos(x/float(B) + C));
+            coseno_x =  A*cos(x*float(B) + C);
             temp.push_back({x, coseno_x});
          }  
     } grafico = temp;

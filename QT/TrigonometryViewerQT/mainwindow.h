@@ -33,9 +33,12 @@ private:
     Ui::Fondo *ui;
     sinusoidal seno;
     sinusoidal coseno;
-    QLineSeries* series_seno = new QLineSeries; //Puede mantenrse
-    QChart* chart_seno= new QChart(); //Puede mantenerse
-    QChartView* chartView_seno = new QChartView(chart_seno);
+    QChart* chart_sinusoidal= new QChart();
+    QLineSeries* series_sinusoidal = new QLineSeries; //Puede mantenrse
+     //Puede mantenerse
+    QChartView* chartView_seno = new QChartView(chart_sinusoidal);
+    QChartView* chartView_coseno = new QChartView(chart_sinusoidal);
+    QChartView* graficar(sinusoidal S);
 
 
 };

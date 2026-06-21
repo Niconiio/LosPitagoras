@@ -28,7 +28,6 @@ void graf_xy(std::vector<std::vector<int>> lista, int tam,int y_max, int y_min, 
 
 class funcion{
   protected:
-    float rec[2] = {0,0};
     //int escala;
     int tam_graf;
   public:
@@ -41,9 +40,11 @@ class funcion{
 
 class sinusoidal: public funcion{
     float A, B, C;
-    int tipo; //Tipo 1 seno, tipo 2 coseno
 
+    int tipo; //Tipo 1 seno, tipo 2 coseno
   public:
+    float rec[2];
+    int get_tipo(){return tipo;}
     void set_A(float A_){A = A_;}
     void set_B(float B_){B = B_;}
     void set_C(float C_){C = C_;}
