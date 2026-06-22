@@ -3,6 +3,7 @@
 #include <QtCharts>
 #include <QMainWindow>
 #include "sinusoidales.h"
+#include "circulo_u.h"
 //#include <QPainter>
 
 QT_BEGIN_NAMESPACE
@@ -23,8 +24,8 @@ public:
     ~MainWindow() override;
 private slots:
 
-
 private:
+Circulo_u *circulo;
 
 
 
@@ -41,9 +42,11 @@ private:
     QChartView* graficar(sinusoidal S);
 
 
+    void actualizarCirculo();
+
+
+
 };
-
-
 
 
 

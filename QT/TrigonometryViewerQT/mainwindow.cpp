@@ -6,6 +6,9 @@
 
 
 QChartView* MainWindow::graficar(sinusoidal S){
+
+
+
     if (S.get_tipo() == 1){
         S.set_A(ui->spinBox_A_seno->value());
         S.rec[0] = ui->spinBox_A_seno->value();
@@ -56,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Fondo)
 {
+    ui->setupUi(this);
+
     seno.set_tipo(1);
     coseno.set_tipo(2);
     seno.dom[0] = -2*pi;
@@ -63,11 +68,9 @@ MainWindow::MainWindow(QWidget *parent)
     coseno.dom[0] = -2*pi;
     coseno.dom[1] = 2*pi;
 
-    ui->setupUi(this);
     //this->setCentralWidget(ui->Tab_principal);
     ui->GraficoSeno->addWidget(chartView_seno);
     ui->GraficoCoseno->addWidget(chartView_coseno);
-
 
 /*
 QObject::connect(ui->GraficarSeno, &QPushButton::clicked, this,[this](){
@@ -178,7 +181,7 @@ QObject::connect(ui->Desplazamiento_horizontal_coseno, &QSlider::valueChanged, t
     ui->GraficoCoseno->addWidget(chartView_coseno);
 });
 
-
+QObject::connect(ui->anguloSpinBox,qOverload<double>(&QDoubleSpinBox::valueChanged),ui->circuloWidget, &Circulo_u::ponerAngulo);
 
 
 
@@ -229,3 +232,4 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+

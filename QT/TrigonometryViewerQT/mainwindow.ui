@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1096</width>
-    <height>654</height>
+    <width>888</width>
+    <height>641</height>
    </rect>
   </property>
   <property name="palette">
@@ -58,10 +58,10 @@
    <widget class="QTabWidget" name="Tab_principal">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>90</y>
-      <width>131</width>
-      <height>291</height>
+      <x>0</x>
+      <y>0</y>
+      <width>871</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -71,22 +71,210 @@
      </sizepolicy>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tabsinusoidal">
      <attribute name="title">
       <string>Sinusoidales</string>
      </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>40</y>
+        <width>361</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="GraficoSeno">
+       <property name="leftMargin">
+        <number>3</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>40</y>
+        <width>381</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="GraficoCoseno"/>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>300</y>
+        <width>220</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="Layout_parametros_coseno">
+       <item row="1" column="0">
+        <widget class="QSpinBox" name="spinBox_A_coseno"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="A_coseno">
+         <property name="text">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QSpinBox" name="spinBox_B_coseno"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="B_coseno">
+         <property name="text">
+          <string>B</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QSpinBox" name="spinBox_C_coseno"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="C_coseno">
+         <property name="text">
+          <string>C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Parametros de la función coseno</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QSlider" name="Desplazamiento_horizontal_coseno">
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="minimum">
+          <number>-10</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+         <property name="invertedControls">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>290</y>
+        <width>211</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="Layout_parametros_seno">
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Parametros de la función Seno</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QSpinBox" name="spinBox_A_seno">
+         <property name="minimum">
+          <number>-50</number>
+         </property>
+         <property name="maximum">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="A_seno">
+         <property name="text">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QSpinBox" name="spinBox_B_seno">
+         <property name="minimum">
+          <number>-50</number>
+         </property>
+         <property name="maximum">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="B_seno">
+         <property name="text">
+          <string>B</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QSpinBox" name="spinBox_C_seno"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="C_seno">
+         <property name="text">
+          <string>C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QSlider" name="Desplazamiento_horizontal_seno">
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="minimum">
+          <number>-10</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+         <property name="invertedControls">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tabunitario">
      <attribute name="title">
       <string>Circulo Unitario</string>
      </attribute>
      <widget class="QLabel" name="label_angulo">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>340</y>
+        <x>50</x>
+        <y>310</y>
         <width>54</width>
         <height>17</height>
        </rect>
@@ -98,8 +286,8 @@
      <widget class="QLabel" name="label_catad">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>340</y>
+        <x>30</x>
+        <y>170</y>
         <width>101</width>
         <height>17</height>
        </rect>
@@ -111,8 +299,8 @@
      <widget class="QLabel" name="label_hipo">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>340</y>
+        <x>40</x>
+        <y>240</y>
         <width>71</width>
         <height>20</height>
        </rect>
@@ -124,10 +312,10 @@
      <widget class="QDoubleSpinBox" name="anguloSpinBox">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>300</y>
-        <width>62</width>
-        <height>26</height>
+        <x>40</x>
+        <y>280</y>
+        <width>81</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="minimum">
@@ -143,8 +331,8 @@
      <widget class="QLabel" name="label_catop">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>340</y>
+        <x>40</x>
+        <y>100</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -156,222 +344,44 @@
      <widget class="QDoubleSpinBox" name="catopSpinBox">
       <property name="geometry">
        <rect>
-        <x>121</x>
-        <y>300</y>
-        <width>91</width>
-        <height>26</height>
+        <x>40</x>
+        <y>70</y>
+        <width>81</width>
+        <height>31</height>
        </rect>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="hipoSpinBox">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>300</y>
-        <width>62</width>
-        <height>26</height>
+        <x>40</x>
+        <y>210</y>
+        <width>81</width>
+        <height>31</height>
        </rect>
       </property>
      </widget>
      <widget class="QDoubleSpinBox" name="catadSpinBox">
       <property name="geometry">
        <rect>
-        <x>21</x>
-        <y>306</y>
+        <x>40</x>
+        <y>140</y>
         <width>81</width>
-        <height>20</height>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="Circulo_u" name="circuloWidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>70</y>
+        <width>471</width>
+        <height>381</height>
        </rect>
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>361</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="GraficoSeno">
-     <property name="leftMargin">
-      <number>3</number>
-     </property>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>10</y>
-      <width>381</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="GraficoCoseno"/>
-   </widget>
-   <widget class="QWidget" name="formLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>260</y>
-      <width>211</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="Layout_parametros_seno">
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Parametros de la función Seno</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QSpinBox" name="spinBox_A_seno">
-       <property name="minimum">
-        <number>-50</number>
-       </property>
-       <property name="maximum">
-        <number>50</number>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="A_seno">
-       <property name="text">
-        <string>A</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QSpinBox" name="spinBox_B_seno">
-       <property name="minimum">
-        <number>-50</number>
-       </property>
-       <property name="maximum">
-        <number>50</number>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="B_seno">
-       <property name="text">
-        <string>B</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QSpinBox" name="spinBox_C_seno"/>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="C_seno">
-       <property name="text">
-        <string>C</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QSlider" name="Desplazamiento_horizontal_seno">
-       <property name="cursor">
-        <cursorShape>OpenHandCursor</cursorShape>
-       </property>
-       <property name="minimum">
-        <number>-10</number>
-       </property>
-       <property name="maximum">
-        <number>10</number>
-       </property>
-       <property name="singleStep">
-        <number>1</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="invertedAppearance">
-        <bool>false</bool>
-       </property>
-       <property name="invertedControls">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>250</y>
-      <width>220</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="Layout_parametros_coseno">
-     <item row="1" column="0">
-      <widget class="QSpinBox" name="spinBox_A_coseno"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="A_coseno">
-       <property name="text">
-        <string>A</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QSpinBox" name="spinBox_B_coseno"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="B_coseno">
-       <property name="text">
-        <string>B</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QSpinBox" name="spinBox_C_coseno"/>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="C_coseno">
-       <property name="text">
-        <string>C</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Parametros de la función coseno</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="2">
-      <widget class="QSlider" name="Desplazamiento_horizontal_coseno">
-       <property name="cursor">
-        <cursorShape>OpenHandCursor</cursorShape>
-       </property>
-       <property name="minimum">
-        <number>-10</number>
-       </property>
-       <property name="maximum">
-        <number>10</number>
-       </property>
-       <property name="singleStep">
-        <number>1</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="invertedAppearance">
-        <bool>false</bool>
-       </property>
-       <property name="invertedControls">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -387,6 +397,14 @@
    </attribute>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Circulo_u</class>
+   <extends>QWidget</extends>
+   <header>circulo_u.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

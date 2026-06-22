@@ -16,6 +16,7 @@ void sinusoidal::cos_sen(){
     float x_max = dom[1];
     float seno_x;
     float coseno_x;
+
     for (float x = x_min; x <= x_max; x+=0.05) {
         if ((int)tipo == 1){
             seno_x =(A*sin(x*B + C));

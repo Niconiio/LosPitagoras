@@ -11,7 +11,7 @@ extern int escala_y;
 extern int x_min, x_max, y_min, y_max;
 extern int tamano;
 */
-class circulo{
+/*class circulo{
   int radio;
   //float angulo;
   float x;
@@ -22,7 +22,7 @@ class circulo{
     void circle_u();
     //void mostrar_Circulo();
 };
-
+*/
 void graf_xy(std::vector<std::vector<int>> lista, int tam,int y_max, int y_min, int  x_max, int x_min, char relleno, char letra);
 //std::vector<std::vector<int>> cos_sen(std::vector<std::vector<int>> lista, int x_min, int x_max, int A, int B, int C, int tipo);
 
