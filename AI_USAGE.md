@@ -24,5 +24,5 @@ Ayudó a compilar, ya que agregó -lm, no se presentaron limitaciones
 
 ### 6. Uso de Gemini para encontrar un metodo para fromatear texto en QT con QString
 
-  - La IA QString("%1texto").arg(5) mostró esta estructura, se utiliaó en el código, no se copio código generado por IA.
+  - La IA QString("%1texto").arg(5) mostró esta estructura, se utilizó en el código, no se copio código generado por IA.
 
