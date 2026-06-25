@@ -19,202 +19,75 @@ Que los estudiantes de enseñanza media comprendan de una mejor forma lo que sig
 | **Nicole Zuñiga** | **Equipo** | Escritura de código, planificación del video|
 | **Daniel Vera** | **Equipo** | Escritura de código, planificación del video|
 
-## Hito 1:
-- Crear una primera versión funcional del proyecto en lenguaje C
-- Crear un Github con una clara organización y completo
-- Crear una presentación en video sobre el avance del proyecto  
+# Trigonometry Viewer QT
 
-### Funcionalidades implementadas:
+## Evolución del proyecto
 
-**struct point**
+### Hito 1:
 
-```c
-struct point {
-    int x;
-    int y;
-    char letra;
-};
-```
+### Creación del las funciones principales, seno, coseno, graf_xy y circle_u
 
-  **Descripción:** Estructura de datos que representa un punto en el plano, con coordenadas enteras y un caracter que representa el punto en el gráfico.
+Seno y coseno modificaban un arreglo de struct point (structura de datos creada para el proyecto que representa un punto) con las coordenadas (x,f(x)) de estas funciones trigonometricas, graf_xy recibia este arreglo y lo graficaba en consola en base a parametros de visualización (dominio, recorrido), circle_u por su parte recibia un angulo y graficaba las componentes del seno y coseno en el circulo unitario.
 
-**Graficadora en el plano cartesiano (graf_xy):**
+### Hito 2:
 
-```void graf_xy(struct point lista[], int tam,int y_max, int y_min, int  x_max, int x_min, char relleno);```
+### Implementación de POO en el proyecto, C++.
 
-**Descripción:** Recibe una arreglo de datos de tipo struct point y lo grafica en consola.
+**Las funciones creadas y sus parametros del hito 1 se abstrajeron a clases de C++**, las funciones seno y coseno se fusionarón en un solo metodo (cos_sen) de la clase sinusoidal (clase derivada de una clase mas general llamada funcion), esta clase contiene todos los atributos necesarios para el funcionamiento de las funciones sen y cos del hito pasado, se cambió el arreglo a un vector de vectores dentro de la clase (atributo grafico), y se añadió parametrización (nuevos atributos, A, B, C) tal que cada objeto de la clase sinusoidal represente una función seno o coseno en su forma sinusoidal (Asen(Bx + c) o Acos(Bx + C)), el principal rol de sinusoidal es crear el vector con las coordenadas necesarias para graficar. Por su parte, para graf_xy y circle_u el se realizaron cambios similares, graf_xy es parte de un metodo de la clase graf, clase que tiene los atributos necesarios para que graf_xy funcione, se añadió un nuevo atributo para "contener" un objeto de la clase sinusoidal para graficar la función, de forma similar para circle_u que ahora es un metodo de la clase circulo.
 
-**Parametros:**
+### Hito 3:
 
-  - **struct point lista[]:** arreglo de datos tipo struct point.
-  int tam: Tamaño del arreglo lista.
+### Interfaz grafica en QT.
 
-  - **int y_max:** entero que representa la altura maxima del grafico desde el origen.
-
-  - **int y_min:** entero que representa la altura minima del grafico desde el origen.
-
-  - **int x_max:** coordenada x maxima que tomara el grafico desde el origen.
-
-  - **int x_min:** coordenada x minima que tomara el grafico desde el origen.
-
-  - **char relleno:** Relleno alrededor del grafico.
-
-**Función seno y coseno (fcoseno y fseno)**:
-
-```void fcoseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
-
-```void fseno(struct point lista[], int tam, int x_min, int x_max, float escala_y, char c);```
-
-**Descripción:** Modifican un arreglo externo a ellas de tamaño fijo dado por x_min y x_max, estas funciones recorren de x_min a x_max evaluandolo en sus respectivas funciones y asignando valores de x e y a cada punto del arreglo.
-
-**Círculo unitario (circle_u):**
-
-```void circle_u(float x, float y);```
+Todo el avance y las funcionalidades hechas en el hito 2 se mantuvieron y migraron a un proyecto en QT (QtWigets Aplication), se elimina la clase graf, y sus metodos, al no necesitarse graficar en consola, se reemplaza esto con elementos de QT como QTCharts (QLineSeries, QCharts, QChartView), se aumentó la "definición" de las funciones sinusoidales (curvas mas suaves), ya que el metodo cos_sen ahora crea un vectores de vectores con valores flotantes (antes los valores de x eran enteros), lo que permite que las curvas en QTCharts sean mas suaves, se mantuvó la clase sinusoidal y se creó una función para graficar las funciones trigonometricas en la interfaz, se reemplazo la clase circulo con un clase circle_u adaptada a QT, cuya responsabilidad es mostrar el circulo unitario en consola. Ahora se visualizan el circulo unitario, y las funciones seno y coseno en una interfaz, todo el programa se utiliza atraves de una ventana, donde el usuario puede variar los parametros (A, B y C), el angulo, desplazar las funciones, etc.
 
 
-**Descripción:** Reciben dos valores flotantes x e y, y ubica un punto en el circulo unitario.
+### Descripción de las clases principales, sus responsabilidades y relaciones.
 
-**Nota:** al evaluar x e y, se deben usar la función math especificando un angulo, talque x = cos(angulo) e y = sin(angulo).
-
-**Ejemplo de uso:** 
-
-  ```float angulo;
-  scanf("%f", &angulo);
-  circle_u(cos(angulo), sin(angulo))
-```
-
->Nota: Los archivos de hito 1 estan en la rama con el mismo nombre en github.
-
-### Avance logrado hasta ahora y próximos pasos hacia el Hito 2:
-- Se logró crear un programa basico sobre una graficadora de seno, coseno y circulo unitario
-- Los pasos hacia el hito 2 será traducir el proyecto a C++ y representar resultados de manera visual.
-
-## Hito 2:
-
-### Cambios estructurales realizados al migrar desde C a C++
-
-**C++**: Se cambiaron todos los printf() y scanf(), por cin y cout, se cambio la biblioteca math por cmath.
-
-**Programación Orientada a Objetos:** Se distinguieron en el proyecto 2 entidades principales, Graficadora y funciones, así que en la implementación de C++, se abstrajo esta idea a dos clases principales, graf y funcion, graf es una clase que representa un graficador de funciones, tal que graf_xy paso a ser parte de un metodo, y sus parametros como atributos de la clase, del mismo modo, para cada función trigonométrica se creó una clase derivada de la clase funcion, e igual con la clase graficadora la funciónes trigonometricas se transformaron en metodos y los parametros en atributos. 
-
-**Standard Template Library:** Hubo un cambio en el tipo de dato con el que se relacionan ambas clases, anteriormente las funciones trigonométricas modificaban un arreglo de struct point (estructura que almacenaba, enteros (x e y) y un caracter) y eso se pasaba como argumento a graf_xy resultando en un grafico en consola, ahora se utilizan vectores de vectores, y el caracter de la curva se almacena dentro del mismo objeto.
-
-### Descripción de las clases creadas, sus responsabilidades y relaciones principales (por ejemplo composición o herencia).
-
-#### - Clase funcion:
-
-```c
-class funcion{
-  protected:
-    int rec[2] = {0,0};
-    int escala; 
-    int tam_graf;
-  public:
-    std::string nombre;
-    char punto;
-    int dom[2] = {0,0};
-    std::vector<std::vector<int>> grafico;
-    int Show_Tam(){tam_graf = grafico.size();return grafico.size();};
-    virtual void funcion_(){};
-};
-```
-
-**Descripción:** clase base de las funciones seno y coseno, contiene los atributos necesarios para que las funciones realizadas en la entrega anterior puedan utilizarse como metodos de las clases derivadas.
-
-#### - Clase sinusoidal:
-```c
-class sinusoidal: public funcion{
-  int A;
-  int B;
-  int C;
-  int tipo;
-  public:
-    sinusoidal(int x_min, int x_max, int A_, int B_, int C_, char p, std::string nombre_, int tipo_){
-      punto = p; dom[0] = x_min; dom[1] = x_max; A = A_; B = B_; C = C_; nombre = nombre_; int tipo = tipo_;}
-      void funcion_(){
-        grafico = cos_sen(grafico, dom[0], dom[1], A,B,C, tipo); tam_graf = grafico.size();}
-};
-```
-Descripción: Representan al seno y al coseno, tiene los atributos necesarios para parametrizar esta función como una sinusoidal del tipo Asin(Bx + c) o Acos(Bx + c), su principal responsabilidad es generar el vector de vectores necesario para que la clase graf la grafique.
-
-Atributos:
-
-A,B,C: parametros de las funciones
-tipo: Permite seleccionar seno o coseno.
-
-Metodos:
-
-funcion_: Utiliza la funcion cos_sen para generar el grafico de la clase.
-sinusoidal(atributos..)
+Class sinusoidal: 
 
 
-
-#### - Clase graf
-
-```c
-class graf{
-  protected: 
-    std::vector<std::vector<int>> grafico_final; 
-    int dom[2];
-    int rec[2];
-    char relleno;
-    funcion funcion_objetivo;
-    int SI_funcion = 0;
-    int tam_graf_final;
-    std::string nombre_grafico;
-    std::string nombre_funcion;
-  public:  
-    graf(int y_max, int y_min,int  x_max, int x_min, char relleno): relleno(relleno){
-      rec[0] = y_min; rec[1] = y_max; dom[0] = x_min; dom[1] = x_max;}
-    void select_funcion(funcion A){SI_funcion = 1;funcion_objetivo = A; grafico_final = A.grafico; tam_graf_final = A.size();} 
-    void graficar(){     
-    if (SI_funcion){  
-    std::cout<< "Grafico de " << <<std::endl;
-    graf_xy(grafico_final, tam_graf_final, rec[1], rec[0], dom[1], dom[0], relleno, funcion_objetivo.punto);
-    }else{std::cout<<"No hay ninguna funciòn almacenada dentro del grafico"<<std::endl;}}
-};
-```
-
-Descripcion: Clase graficadora, contiene los atributos necesarios para que graf_xy funcione dentro de los metodos del la clase, su principalidad responsabilidad es graficar una función trigonometrica almacenada dentro.
-
-Atributos:
-
-- int dom[2]: Arreglo que almacena los extremos del dominio que se desea graficar.
-- int rec[2]: Arreglo que almacena los extremos del recorrido que se desa graficar.
-- char relleno: Relleno del grafico para regiones fuera de la curva de la funciòn a graficar.
-- funcion funcion_objetivo: Almacena la función que se va a graficar.
-- int SI_funcion = 0: flag, cuyo valor es 1 cuando funcion_objetivo es igual a un objeto de la clase funcion.
-- int tam_graf_final: Tamaño del vector que contiene los puntos del grafico de la funcion objetivo.
-- std::string nombre_grafico: Nombre del grafico, para objetios de esta clase, útil para identificar el objeto de otros.
-- std::string nombre_funcion: Nombre de la funcion objetivo.
+Class circle_u:
 
 
+### Explicación de la interfaz desarrollada , indicando objetivo, widgets principales, flujo de uso y forma de parametrización. (ultimo)
 
 
+### Descripción de la separación entre lógica e interfaz
+
+### funcionalidades implementadas y las pruebas realizadas.
+
+### Ejemplos de ejecución y resultados esperados (ultimo)
 
 
+### Conclusiones del proyecto y posibles mejoras futuras si el desarrollo continuara.
 
-
-### Ejemplos de ejecución y resultados esperados 
-
-
-
-
-### Cambios respecto a la entrega anterior
-
-**Sobre el cuarto integrante:**
-
-- Por motivos personales, nuestro compañero **Vicente Arrellano** ha tomado la decisión de cursar la asignatura el próximo semestre, como equipo agradecemos su aporte en el Hito 1.
+Si bien se tenia planeado implementar ejemplos de aplicaciones de funciones trigonometricas en fisica u otros en una interfaz, así como otras posibles mejoras, como mas opciones de parametrización de las funciones, o de interfaz, por motivos de tiempo se ha pospuesto esto para mejoras futuras, consideramos como equipo que se ha cumplido lo pedido para esta entrega, tanto el objetivo general como los dos primeros objetivos especificos, se ha desarrollado una interfaz sencilla, funcional y facil de usar donde se parametrizan estas funciones y se interactua con el circulo unitario, manteniendo la funcionalidad pedida para el hito 1, 2 y 3. 
 
 ### Documentos adicionales y anexos
 
-**Compilación:** g++ main.cpp implementacion.cpp encabezado.h -o nombre_archivo
-**Ejecución:** ./nombre_archivo
+**Intrucciones de ejecución y compilación del programa:**
+
+#### Requisitos:
+
+1) Tener instalado QT Creator en su ultima versión (6.11 o superior).
+2) Sistema operativo compatible con QT.
+
+#### Pasos:
+1) Descarga los archivos de la carpeta trigonometry Viewer QT
+2) Crea un proyecto con QT Widgets Aplication, guardalo en una carpeta de preferencia.
+3) Copia los archivos descargados a la carpeta del proyecto recien creada, reemplaza los archivos antiguos con los recien copiados.
+4) Abre el proyecto, presiona en el boton Run abajo a la izquierda en QT Creator.
+5) Usa el programa.
+
+#### Anexos:
+
+Avances realizados y su documentación durante el hito 1 y 2, en ramas h1 e hito 2 en Github.
 
 ### Referencias:
 
 [Markdown](https://markdown.es/)
 [Markdown] (https://learn.microsoft.com/en-us/contribute/media/documents/markdown-cheatsheet.pdf?raw=true)
 [Aprende GIT ahora! curso completo GRATIS desde cero](https://www.youtube.com/watch?v=VdGzPZ31ts8)
-     [C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
+[C math (math.h) Library](https://www.w3schools.com/c/c_ref_math.php)
 [Herencia c++](https://learn.microsoft.com/es-es/cpp/cpp/inheritance-cpp?view=msvc-170)
