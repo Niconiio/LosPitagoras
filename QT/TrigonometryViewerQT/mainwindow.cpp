@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QtCharts>
 #include <QApplication>
-//#include <QPainter>
+
 
 
 QChartView* MainWindow::graficar(sinusoidal S){
@@ -23,14 +23,10 @@ QChartView* MainWindow::graficar(sinusoidal S){
         S.set_C(ui->spinBox_C_coseno->value());
     }
 
-    //No tienen mucho sentido estos metodos, deberian estar en privado estos atributos, para que tengan sentido
     S.cos_sen();
     QLineSeries* eje_x = new QLineSeries;
     eje_x->append(S.dom[0],0);
     eje_x->append(S.dom[1],0);
-    //QLineSeries* eje_y = new QLineSeries;
-    //eje_y->append(0,S.rec[0]);
-    //eje_y->append(0,S.rec[1]);
     QLineSeries* series_temp = new QLineSeries;
     for (int ind = 0; ind < S.grafico.size(); ind ++){
         series_temp->append(S.grafico[ind][0],S.grafico[ind][1]);
@@ -39,16 +35,18 @@ QChartView* MainWindow::graficar(sinusoidal S){
     chart_sinusoidal = new QChart();
     chart_sinusoidal->addSeries(series_sinusoidal);
     chart_sinusoidal->addSeries(eje_x);
-    //chart_sinusoidal->addSeries(eje_y);
+
     chart_sinusoidal->legend()->hide();
     chart_sinusoidal->createDefaultAxes();
     QString texto;
     if (S.tipo == 1){
-    texto = QString("%1seno(%2x + %3)").arg(ui->spinBox_A_seno->value()).arg(ui->spinBox_B_seno->value()).arg(ui->spinBox_C_seno->value());
+        if (ui->spinBox_A_seno->value() == 1 && ui->spinBox_B_seno->value() == 1 && ui->spinBox_C_seno->value() == 0){texto = QString("sen(x)");}
+        else{texto = QString("%1seno(%2x + %3)").arg(ui->spinBox_A_seno->value()).arg(ui->spinBox_B_seno->value()).arg(ui->spinBox_C_seno->value());}
     } else if (S.tipo == 2){
-    texto = QString("%1coseno(%2x + %3)").arg(ui->spinBox_A_seno->value()).arg(ui->spinBox_B_seno->value()).arg(ui->spinBox_C_seno->value());
+        if (ui->spinBox_A_coseno->value() == 1 && ui->spinBox_B_coseno->value() == 1 && ui->spinBox_C_coseno->value() == 0){texto = QString("cos(x)");}
+        else{texto = QString("%1coseno(%2x + %3)").arg(ui->spinBox_A_coseno->value()).arg(ui->spinBox_B_coseno->value()).arg(ui->spinBox_C_coseno->value());}
     }
-        // Resultado: "Archivo 5 de 10 completado."
+
     chart_sinusoidal->setTitle(texto);
     return new QChartView(chart_sinusoidal);
 }
@@ -68,28 +66,14 @@ MainWindow::MainWindow(QWidget *parent)
     coseno.dom[0] = -2*pi;
     coseno.dom[1] = 2*pi;
 
-    //this->setCentralWidget(ui->Tab_principal);
+
     ui->GraficoSeno->addWidget(chartView_seno);
     ui->GraficoCoseno->addWidget(chartView_coseno);
 
-/*
-QObject::connect(ui->GraficarSeno, &QPushButton::clicked, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
-    ui->GraficoSeno->removeWidget(chartView_seno);
-    chartView_seno = graficar(seno);
-    ui->GraficoSeno->addWidget(chartView_seno);
 
-});
-*/
 
 QObject::connect(ui->spinBox_A_seno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoSeno->removeWidget(chartView_seno);
     chartView_seno = graficar(seno);
     ui->GraficoSeno->addWidget(chartView_seno);
@@ -98,10 +82,7 @@ QObject::connect(ui->spinBox_A_seno, &QSpinBox::valueChanged, this,[this](){
 
 
 QObject::connect(ui->spinBox_B_seno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoSeno->removeWidget(chartView_seno);
     chartView_seno = graficar(seno);
     ui->GraficoSeno->addWidget(chartView_seno);
@@ -109,10 +90,7 @@ QObject::connect(ui->spinBox_B_seno, &QSpinBox::valueChanged, this,[this](){
 });
 
 QObject::connect(ui->spinBox_C_seno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoSeno->removeWidget(chartView_seno);
     chartView_seno = graficar(seno);
     ui->GraficoSeno->addWidget(chartView_seno);
@@ -120,10 +98,7 @@ QObject::connect(ui->spinBox_C_seno, &QSpinBox::valueChanged, this,[this](){
 });
 
 QObject::connect(ui->spinBox_A_coseno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoCoseno->removeWidget(chartView_coseno);
     chartView_coseno = graficar(coseno);
     ui->GraficoCoseno->addWidget(chartView_coseno);
@@ -132,10 +107,7 @@ QObject::connect(ui->spinBox_A_coseno, &QSpinBox::valueChanged, this,[this](){
 
 
 QObject::connect(ui->spinBox_B_coseno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoCoseno->removeWidget(chartView_coseno);
     chartView_coseno = graficar(coseno);
     ui->GraficoCoseno->addWidget(chartView_coseno);
@@ -143,10 +115,7 @@ QObject::connect(ui->spinBox_B_coseno, &QSpinBox::valueChanged, this,[this](){
 });
 
 QObject::connect(ui->spinBox_C_coseno, &QSpinBox::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
     ui->GraficoCoseno->removeWidget(chartView_coseno);
     chartView_coseno = graficar(coseno);
     ui->GraficoCoseno->addWidget(chartView_coseno);
@@ -155,10 +124,7 @@ QObject::connect(ui->spinBox_C_coseno, &QSpinBox::valueChanged, this,[this](){
 
 
 QObject::connect(ui->Desplazamiento_horizontal_seno, &QSlider::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
 
     seno.dom[0] = -2*pi + ui->Desplazamiento_horizontal_seno->value();
     seno.dom[1] = 2*pi + ui->Desplazamiento_horizontal_seno->value();
@@ -169,10 +135,7 @@ QObject::connect(ui->Desplazamiento_horizontal_seno, &QSlider::valueChanged, thi
 
 
 QObject::connect(ui->Desplazamiento_horizontal_coseno, &QSlider::valueChanged, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
+
 
     coseno.dom[0] = -2*pi + ui->Desplazamiento_horizontal_coseno->value();
     coseno.dom[1] = 2*pi + ui->Desplazamiento_horizontal_coseno->value();
@@ -185,47 +148,7 @@ QObject::connect(ui->anguloSpinBox,qOverload<double>(&QDoubleSpinBox::valueChang
 
 
 
-/*
-QObject::connect(ui->GraficarCoseno, &QPushButton::clicked, this,[this](){
-    //Dentro de Connect
-    //ui->GraficoSeno->removeWidget(chartView_sinusoidal); //El char view alamacena la un grafico
-    //ui->Grafico->addWidget(chartView);
-    //chartView->setRenderHint(QPainter::Antialiasing);
-    ui->GraficoCoseno->removeWidget(chartView_coseno);
-    chartView_coseno = graficar(coseno);
-    ui->GraficoCoseno->addWidget(chartView_coseno);
-});
-*/
 
-
-
-
-/*
-
-    QObject::connect(ui->GraficarSeno, &QPushButton::clicked, this,[this](){
-
-
-
-    //Dentro de Connect
-    ui->GraficoSeno->removeWidget(chartView_seno);
-     QLineSeries* series = new QLineSeries;
-     series->append(1,2);
-     series->append(2,3);
-     series->append(4,5);
-     QChart*chart=new QChart();
-     chart->addSeries(series);
-     chart->legend()->hide();
-     chart->createDefaultAxes();
-     chart->setTitle("Función Seno");
-     QChartView *chartView = new QChartView(chart);
-     //ui->Grafico->addWidget(chartView);
-     //chartView->setRenderHint(QPainter::Antialiasing);
-     ui->GraficoSeno->addWidget(chartView);
-     temp = chartView;
-     count+=1;
-
-    });
-*/
 }
 
 MainWindow::~MainWindow()

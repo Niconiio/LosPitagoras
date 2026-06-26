@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "sinusoidales.h"
 #include "circulo_u.h"
-//#include <QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,7 +13,6 @@ QT_END_NAMESPACE
 
 
 
-//Aquí
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,24 +25,17 @@ private slots:
 private:
 Circulo_u *circulo;
 
-
-
     QChartView* temp;
     int count = 0;
     Ui::Fondo *ui;
     sinusoidal seno;
     sinusoidal coseno;
     QChart* chart_sinusoidal= new QChart();
-    QLineSeries* series_sinusoidal = new QLineSeries; //Puede mantenrse
-     //Puede mantenerse
+    QLineSeries* series_sinusoidal = new QLineSeries;
     QChartView* chartView_seno = new QChartView(chart_sinusoidal);
     QChartView* chartView_coseno = new QChartView(chart_sinusoidal);
     QChartView* graficar(sinusoidal S);
-
-
     void actualizarCirculo();
-
-
 
 };
 
