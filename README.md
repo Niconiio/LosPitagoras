@@ -44,20 +44,31 @@ Todo el avance y las funcionalidades hechas en el hito 2 se mantuvieron y migrar
 
 ### Descripción de las clases principales, sus responsabilidades y relaciones.
 
-Class sinusoidal: 
+Class sinusoidal: Representa a la funcion seno o coseno parametrizada en su forma general (A*sen(Bx+c)) o (A*cos(Bx+C)).
 
+"cos_sen()" recorre el dominio (dom[0] a dom[1]) en pasos de 0.05 (valor flotante, lo que logra las curvas suaves) y calcula A*sin(B*x+C) si "tipo==1" o A*cos(B*x+C) si "tipo==2", guardando las coordenadas en grafico.
+ 
 
-Class circle_u:
+Class circle_u: Dibuja el circulo unitario y muestra, para el ángulo dado, el punto sobre la circunferencia y los segmentos que representan su seno y su coseno.
 
 
 ### Explicación de la interfaz desarrollada , indicando objetivo, widgets principales, flujo de uso y forma de parametrización. (ultimo)
 
+Objetivo de la interfaz: ofrecer una ventana utilizable para el usuario, en particular el estudiante, donde pueda ver y manipular en tiempo real las graficas de las funciones sinusoidales y el circulo unitario.
+
+Widgets principales: "spinBox_(A/B/C)_(seno/coseno)", Para controlar A, B y C de las funciones seno y coseno, "Desplazamiento_horizontal_(seno/coseno)", desplazan el dominio visible, "anguloSpinBox", controla el ángulo del circulo unitario, "circuloWidget", dibuja el circulo unitario.
+
+Flujo de uso: al abrir el programa, se muestran de inmediato las curvas de seno y coseno (con A=1, B=1, C=0 por defecto) y el círculo unitario en ángulo 0°. Al modificar cualquiera de los spinboxes A/B/C de seno o coseno, MainWindow::graficar() reconstruye por completo el gráfico correspondiente: recalcula los puntos con cos_sen(), crea un nuevo QChart/QLineSeries, y actualiza el título mostrando la fórmula resultante (por ejemplo 2seno(3x + 1), o el caso especial sen(x)/cos(x) cuando A=1, B=1, C=0). Al mover los sliders de desplazamiento horizontal, se actualiza el dominio (dom[0]/dom[1]) de la función correspondiente, desplazando la "ventana" visible de la curva sin cambiar su forma. Al mover anguloSpinBox, el cambio se envía directamente al widget circuloWidget, que recalcula y redibuja el punto sobre la circunferencia y sus proyecciones de seno/coseno.
+
 
 ### Descripción de la separación entre lógica e interfaz
+
+Utilizando el propio contenido de nuestro proyecto, la logica es la que se encarga de, por ejemplo, hacer los calculos matematicos. Nos entrega "f(x)" por cada "x", Mientras que la interfaz es el código que se encarga de graficar eso en QtCharts.
 
 ### funcionalidades implementadas y las pruebas realizadas.
 
 ### Ejemplos de ejecución y resultados esperados (ultimo)
+
 
 
 ### Conclusiones del proyecto y posibles mejoras futuras si el desarrollo continuara.
