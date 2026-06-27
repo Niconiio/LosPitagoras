@@ -44,32 +44,44 @@ Todo el avance y las funcionalidades hechas en el hito 2 se mantuvieron y migrar
 
 ### Descripción de las clases principales, sus responsabilidades y relaciones.
 
-Class sinusoidal: Representa a la funcion seno o coseno parametrizada en su forma general (A*sen(Bx+c)) o (A*cos(Bx+C)).
+**Class sinusoidal:** Representa a la funcion seno o coseno parametrizada en su forma general (A*sen(Bx+c)) o (A*cos(Bx+C)).
 
 "cos_sen()" recorre el dominio (dom[0] a dom[1]) en pasos de 0.05 (valor flotante, lo que logra las curvas suaves) y calcula A*sin(B*x+C) si "tipo==1" o A*cos(B*x+C) si "tipo==2", guardando las coordenadas en grafico.
  
+**Class circle_u:** Dibuja el circulo unitario y muestra, para el ángulo dado, el punto sobre la circunferencia y los segmentos que representan su seno y su coseno.
 
-Class circle_u: Dibuja el circulo unitario y muestra, para el ángulo dado, el punto sobre la circunferencia y los segmentos que representan su seno y su coseno.
+### Explicación de la interfaz desarrollada , indicando objetivo, widgets principales, flujo de uso y forma de parametrización. 
 
+**Objetivo de la interfaz:** ofrecer una ventana utilizable para el usuario, en particular el estudiante, donde pueda ver y manipular en tiempo real las graficas de las funciones sinusoidales y el circulo unitario.
 
-### Explicación de la interfaz desarrollada , indicando objetivo, widgets principales, flujo de uso y forma de parametrización. (ultimo)
+**Widgets principales:** "spinBox_(A/B/C)_(seno/coseno)", Para controlar A, B y C de las funciones seno y coseno, "Desplazamiento_horizontal_(seno/coseno)", desplazan el dominio visible, "anguloSpinBox", controla el ángulo del circulo unitario, "circuloWidget", dibuja el circulo unitario, botones A, B, C al lado de los spinbox son decorativos.
 
-Objetivo de la interfaz: ofrecer una ventana utilizable para el usuario, en particular el estudiante, donde pueda ver y manipular en tiempo real las graficas de las funciones sinusoidales y el circulo unitario.
-
-Widgets principales: "spinBox_(A/B/C)_(seno/coseno)", Para controlar A, B y C de las funciones seno y coseno, "Desplazamiento_horizontal_(seno/coseno)", desplazan el dominio visible, "anguloSpinBox", controla el ángulo del circulo unitario, "circuloWidget", dibuja el circulo unitario.
-
-Flujo de uso: al abrir el programa, se muestran de inmediato las curvas de seno y coseno (con A=1, B=1, C=0 por defecto) y el círculo unitario en ángulo 0°. Al modificar cualquiera de los spinboxes A/B/C de seno o coseno, MainWindow::graficar() reconstruye por completo el gráfico correspondiente: recalcula los puntos con cos_sen(), crea un nuevo QChart/QLineSeries, y actualiza el título mostrando la fórmula resultante (por ejemplo 2seno(3x + 1), o el caso especial sen(x)/cos(x) cuando A=1, B=1, C=0). Al mover los sliders de desplazamiento horizontal, se actualiza el dominio (dom[0]/dom[1]) de la función correspondiente, desplazando la "ventana" visible de la curva sin cambiar su forma. Al mover anguloSpinBox, el cambio se envía directamente al widget circuloWidget, que recalcula y redibuja el punto sobre la circunferencia y sus proyecciones de seno/coseno.
-
+**Flujo de uso:** al abrir el programa, se muestran de inmediato las curvas de seno y coseno (con A=0, B=0, C=0 por defecto) y el círculo unitario en ángulo 0°. Al modificar cualquiera de los spinboxes A/B/C de seno o coseno, MainWindow::graficar() reconstruye por completo el gráfico correspondiente: recalcula los puntos con cos_sen(), crea un nuevo QChart/QLineSeries, y actualiza el título mostrando la fórmula resultante (por ejemplo 2seno(3x + 1), o el caso especial sen(x)/cos(x) cuando A=1, B=1, C=0). Al mover los sliders de desplazamiento horizontal, se actualiza el dominio (dom[0]/dom[1]) de la función correspondiente, desplazando la "ventana" visible de la curva sin cambiar su forma. Al mover anguloSpinBox, el cambio se envía directamente al widget circuloWidget, que recalcula y redibuja el punto sobre la circunferencia y sus proyecciones de seno/coseno.
 
 ### Descripción de la separación entre lógica e interfaz
 
-Utilizando el propio contenido de nuestro proyecto, la logica es la que se encarga de, por ejemplo, hacer los calculos matematicos. Nos entrega "f(x)" por cada "x", Mientras que la interfaz es el código que se encarga de graficar eso en QtCharts.
+Utilizando el propio contenido de nuestro proyecto, la logica es la que se encarga de, por ejemplo, hacer los calculos matematicos. Nos entrega "f(x)" por cada "x", Mientras que la interfaz es el código que se encarga de graficar eso en QtCharts, y abrir la ventana.
 
-### funcionalidades implementadas y las pruebas realizadas.
+### Funcionalidades implementadas y las pruebas realizadas.
 
-### Ejemplos de ejecución y resultados esperados (ultimo)
+Según las pruebas realizadas el programa hace lo siguiente:
 
+**Parametrizar las funciones sinusoidales y visualizar los cambios inmediatamente:** El programa dispone de dos grafico en la pestaña sinusoidal uno para el seno y el coseno, donde el usuario puede modificar los parametros de estas funciones cambiando su forma, segun los valores de A,B,C, tambien puede desplazar la función horizontalmente con un slider. 
 
+**Visualizar el circulo unitario:** el usuario puede cambiar el angulo, y eso se ve reflejado en el angulo del radio.
+
+### Ejemplos de ejecución y resultados esperados 
+
+Ejemplos:
+
+- Se cambia el valor de A,B o C en seno o coseno, segun correponda.
+**Resultado:** se modifica el grafico de seno o coseno, segun corresponda, si se cambia A, la función toma valores distintos de "y" de forma simetrica (ejemplo, A = 5, entonces la amplitud del seno es 5, y el minimo de la función es -5 y el maximo es 5), si se modifica B, la función se achura o se estira, si cambia C la función se desplaza segun ese valor.
+
+- Se desliza el slider de seno o coseno
+**Resultado:** La función se desplza horizontalmente.
+
+Se cambia el angulo de del circulo unitario
+**Resultado:** el radio gira, y se muestran en lcd los valores del seno y coseno.
 
 ### Conclusiones del proyecto y posibles mejoras futuras si el desarrollo continuara.
 
