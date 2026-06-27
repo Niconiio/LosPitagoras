@@ -146,7 +146,13 @@ QObject::connect(ui->Desplazamiento_horizontal_coseno, &QSlider::valueChanged, t
 
 QObject::connect(ui->anguloSpinBox,qOverload<double>(&QDoubleSpinBox::valueChanged),ui->circuloWidget, &Circulo_u::ponerAngulo);
 
-
+connect(ui->circuloWidget, &Circulo_u::SenoCoseno,
+        this,
+        [=](double seno, double coseno)
+        {
+            ui->lcdSeno->display(seno);
+            ui->lcdCoseno->display(coseno);
+        });
 
 
 }

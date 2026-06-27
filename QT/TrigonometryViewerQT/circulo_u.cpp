@@ -45,17 +45,23 @@ void Circulo_u::circulo()
 
     for(int i=0;i<=360;i++)
     {
-        double rad = i * M_PI / 180.0;//usar funcion para transformar de grad a rad
+        double rad = i * M_PI / 180.0;//pasa de grados a radianes
 
         double x = cos(rad);
         double y = sin(rad);
 
         circuloSeries->append(x,y);
+
     }
 }
 void Circulo_u::ponerAngulo(double grados){
-    angulo= grados;
+    angulo=grados;
+    double rad = angulo * M_PI / 180.0;
+
+    emit SenoCoseno(sin(rad), cos(rad));
+
     mostrarInfo();
+
 }
 
 void Circulo_u::mostrarInfo()

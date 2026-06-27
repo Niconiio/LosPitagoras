@@ -15,6 +15,8 @@ class Circulo_u: public QChartView{
 public:
     Circulo_u(QWidget *parent = nullptr);
     void ponerAngulo(double grados);
+signals:
+    void SenoCoseno(double seno, double coseno);
 private:
     void circulo();
     void mostrarInfo();
